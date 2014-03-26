@@ -1,0 +1,26 @@
+From b274ea4f308d39ef4a847a3c427359ba8f680b17 Mon Sep 17 00:00:00 2001
+From: maclaw <maclaw@maclaw.pl>
+Date: Fri, 6 Dec 2013 22:06:09 +0000
+Subject: [PATCH] allow to install throught any recovery
+
+---
+ updater/install.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/updater/install.c b/updater/install.c
+index c1f55dc..d8c43c0 100644
+--- a/updater/install.c
++++ b/updater/install.c
+@@ -691,7 +691,7 @@ static struct perm_parsed_args ParsePermArgs(int argc, char** args) {
+             int64_t capabilities;
+             if (sscanf(args[i+1], "%" SCNi64, &capabilities) == 1) {
+                 parsed.capabilities = capabilities;
+-                parsed.has_capabilities = true;
++                parsed.has_capabilities = false;
+             } else {
+                 printf("ParsePermArgs: invalid capabilities \"%s\"\n", args[i + 1]);
+                 bad++;
+-- 
+1.8.4.2
+
+

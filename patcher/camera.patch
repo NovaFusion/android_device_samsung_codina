@@ -1,0 +1,26 @@
+From fc2471d6491b4310eba23b035109a45135225d5f Mon Sep 17 00:00:00 2001
+From: maclaw <maclaw@maclaw.pl>
+Date: Sun, 29 Dec 2013 15:38:14 +0000
+Subject: [PATCH] fixed camera on latest CM Camera app sources for
+ Golden/Codina and prorably all STE-Samsung devices
+
+---
+ src/com/android/camera/util/CameraUtil.java | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/src/com/android/camera/util/CameraUtil.java b/src/com/android/camera/util/CameraUtil.java
+index a301e0d..cdafdbe 100644
+--- a/src/com/android/camera/util/CameraUtil.java
++++ b/src/com/android/camera/util/CameraUtil.java
+@@ -168,6 +168,9 @@ public class CameraUtil {
+     }
+ 
+     public static boolean isSupported(Parameters params, String key) {
++        if (key.equals("saturation-max") || key.equals("contrast-max") || key.equals("sharpness-max")) {
++            return false;
++        }
+         return (params.get(key) != null && !"null".equals(params.get(key)));
+     }
+ 
+-- 
+1.8.5.2

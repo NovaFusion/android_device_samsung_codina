@@ -1,0 +1,48 @@
+# RIL
+rild.libargs=-d /dev/ttyS0
+rild.libpath=/system/lib/libsec-ril.so
+ro.ril.hsxpa=1
+ro.ril.gprsclass=10
+mobiledata.interfaces=pdp0,wlan0,gprs,ppp0
+ro.telephony.ril_class=MaclawRIL
+ro.telephony.sends_barcount=1
+# Wi-fi
+wifi.interface=wlan0
+wifi.supplicant_scan_interval=150
+# STE
+ste.cam.back.orientation=90
+ste.cam.front.orientation=270
+ste.cam.ext.cfg.path.secondary=/system/usr/share/camera/config_file/aptina_mt9v113.dat
+ste.dbus.bus.address=unix:path=/dev/socket/dbus_ste
+ste.omx.ctx=0
+ste.nmf.autoidle=1
+ste.video.dec.mpeg4.in.size=8192
+ste.video.dec.recycle.delay=1
+ste.video.enc.out.buffercnt=5
+ste.special_fast_dormancy=false
+# Display
+ro.opengles.version=131072
+persist.sys.strictmode.disable=1
+hwui.render_dirty_regions=false
+ro.zygote.disable_gl_preload=1
+ro.bq.gpu_to_cpu_unsupported=1
+# USB
+persist.sys.usb.config=mtp,adb
+persist.service.adb.enable=1
+# Error Checking
+ro.kernel.android.checkjni=0
+dalvik.vm.checkjni=false
+# Inne
+dalvik.vm.dexopt-data-only=1
+ro.telephony.call_ring.multiple=false
+ro.sf.lcd_density=240
+ro.lcd_min_brightness=30
+# Disable SELinux
+ro.boot.selinux=disabled
+# Hardware info
+ro.device.chipset=ST-Ericsson NovaThor U8500 (45nm)
+ro.device.cpu=ARMv7 800MHz Dual-core ARM Cortex-A9
+ro.device.gpu=Mali-400MP Single Core
+ro.device.rear_cam=5 Mpix (2592x1944)
+ro.device.front_cam=VGA (640x480)
+ro.device.screen_res=3,8' 800x480 pixels ( ~246 ppi)
