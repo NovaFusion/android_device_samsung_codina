@@ -1,16 +1,26 @@
-diff -ur unpaczed/camera/CameraParameters.cpp paczed/camera/CameraParameters.cpp
---- unpaczed/camera/CameraParameters.cpp	2014-01-18 13:22:35.319485516 +0100
-+++ paczed/camera/CameraParameters.cpp	2014-01-18 13:25:30.755397314 +0100
-@@ -100,7 +100,7 @@
- #ifdef QCOM_HARDWARE
- const char CameraParameters::KEY_SCENE_DETECT[] = "scene-detect";
- const char CameraParameters::KEY_SUPPORTED_SCENE_DETECT[] = "scene-detect-values";
--#endif QCOM_HARDWARE
-+#endif
- const char CameraParameters::KEY_FLASH_MODE[] = "flash-mode";
- const char CameraParameters::KEY_SUPPORTED_FLASH_MODES[] = "flash-mode-values";
- const char CameraParameters::KEY_FOCUS_MODE[] = "focus-mode";
-@@ -329,6 +329,13 @@
+From 27c681d393c960996154ddcc1b88a21122c251b7 Mon Sep 17 00:00:00 2001
+From: Marcin Chojnacki <marcinch7@gmail.com>
+Date: Sun, 23 Mar 2014 13:11:26 +0100
+Subject: [PATCH] ste: multimedia patch
+
+---
+ camera/CameraParameters.cpp                        |  21 +++
+ include/camera/CameraParameters.h                  |  21 +++
+ include/media/stagefright/ColorConverter.h         |   5 +
+ include/media/stagefright/MediaDefs.h              |   6 +
+ include/media/stagefright/OMXCodec.h               |   7 +
+ media/libstagefright/ACodec.cpp                    |   4 +
+ media/libstagefright/CameraSource.cpp              |  15 +++
+ media/libstagefright/MediaDefs.cpp                 |   6 +
+ media/libstagefright/OMXCodec.cpp                  |  46 +++++++
+ .../colorconversion/ColorConverter.cpp             | 145 +++++++++++++++++++++
+ 10 files changed, 276 insertions(+)
+
+diff --git a/camera/CameraParameters.cpp b/camera/CameraParameters.cpp
+index 7fa3d06..3ef7d89 100644
+--- a/camera/CameraParameters.cpp
++++ b/camera/CameraParameters.cpp
+@@ -328,6 +328,13 @@
  const char CameraParameters::SCENE_MODE_SPORTS[] = "sports";
  const char CameraParameters::SCENE_MODE_PARTY[] = "party";
  const char CameraParameters::SCENE_MODE_CANDLELIGHT[] = "candlelight";
@@ -24,7 +34,7 @@ diff -ur unpaczed/camera/CameraParameters.cpp paczed/camera/CameraParameters.cpp
  #ifdef QCOM_HARDWARE
  #ifdef SAMSUNG_CAMERA_LEGACY
  const char CameraParameters::SCENE_MODE_BACKLIGHT[] = "back-light";
-@@ -355,6 +362,14 @@
+@@ -354,6 +361,14 @@
  #ifdef QCOM_HARDWARE
  const char CameraParameters::PIXEL_FORMAT_YUV420SP_ADRENO[] = "yuv420sp-adreno";
  #endif
@@ -39,7 +49,7 @@ diff -ur unpaczed/camera/CameraParameters.cpp paczed/camera/CameraParameters.cpp
  const char CameraParameters::PIXEL_FORMAT_YUV422I[] = "yuv422i-yuyv";
  const char CameraParameters::PIXEL_FORMAT_YUV420P[]  = "yuv420p";
  const char CameraParameters::PIXEL_FORMAT_RGB565[] = "rgb565";
-@@ -537,6 +552,12 @@
+@@ -518,6 +533,12 @@ void CameraParameters::setOrientation(int orientation)
  const char CameraParameters::LIGHTFX_LOWLIGHT[] = "low-light";
  const char CameraParameters::LIGHTFX_HDR[] = "high-dynamic-range";
  
@@ -52,10 +62,11 @@ diff -ur unpaczed/camera/CameraParameters.cpp paczed/camera/CameraParameters.cpp
  CameraParameters::CameraParameters()
                  : mMap()
  {
-diff -ur unpaczed/include/camera/CameraParameters.h paczed/include/camera/CameraParameters.h
---- unpaczed/include/camera/CameraParameters.h	2014-01-18 13:22:35.331485509 +0100
-+++ paczed/include/camera/CameraParameters.h	2014-01-18 13:25:30.767397308 +0100
-@@ -829,6 +829,13 @@
+diff --git a/include/camera/CameraParameters.h b/include/camera/CameraParameters.h
+index fa3b9aa..defa1e5 100644
+--- a/include/camera/CameraParameters.h
++++ b/include/camera/CameraParameters.h
+@@ -838,6 +838,13 @@ class CameraParameters
      static const char SCENE_MODE_SPORTS[];
      static const char SCENE_MODE_PARTY[];
      static const char SCENE_MODE_CANDLELIGHT[];
@@ -69,7 +80,7 @@ diff -ur unpaczed/include/camera/CameraParameters.h paczed/include/camera/Camera
  #ifdef QCOM_HARDWARE
      static const char SCENE_MODE_BACKLIGHT[];
      static const char SCENE_MODE_FLOWERS[];
-@@ -853,6 +860,14 @@
+@@ -862,6 +869,14 @@ class CameraParameters
  #ifdef QCOM_HARDWARE
      static const char PIXEL_FORMAT_YUV420SP_ADRENO[]; // ADRENO
  #endif
@@ -84,7 +95,7 @@ diff -ur unpaczed/include/camera/CameraParameters.h paczed/include/camera/Camera
      static const char PIXEL_FORMAT_YUV422I[]; // YUY2
      static const char PIXEL_FORMAT_YUV420P[]; // YV12
      static const char PIXEL_FORMAT_RGB565[];
-@@ -928,6 +943,12 @@
+@@ -941,6 +956,12 @@ class CameraParameters
      // High-dynamic range mode
      static const char LIGHTFX_HDR[];
  
@@ -95,12 +106,13 @@ diff -ur unpaczed/include/camera/CameraParameters.h paczed/include/camera/Camera
 +#endif
 +
  #ifdef QCOM_HARDWARE
- #ifdef QCOM_LEGACY_CAM_PARAMS
-     static const char FOCUS_MODE_CONTINUOUS_CAMERA[];
-diff -ur unpaczed/include/media/stagefright/ColorConverter.h paczed/include/media/stagefright/ColorConverter.h
---- unpaczed/include/media/stagefright/ColorConverter.h	2014-01-18 13:22:35.339485505 +0100
-+++ paczed/include/media/stagefright/ColorConverter.h	2014-01-18 13:25:30.775397304 +0100
-@@ -73,6 +73,11 @@
+     // Normal focus mode. Applications should call
+     // CameraHardwareInterface.autoFocus to start the focus in this mode.
+diff --git a/include/media/stagefright/ColorConverter.h b/include/media/stagefright/ColorConverter.h
+index 85ba920..014fc7a 100644
+--- a/include/media/stagefright/ColorConverter.h
++++ b/include/media/stagefright/ColorConverter.h
+@@ -73,6 +73,11 @@ struct ColorConverter {
      status_t convertQCOMYUV420SemiPlanar(
              const BitmapParams &src, const BitmapParams &dst);
  
@@ -112,9 +124,10 @@ diff -ur unpaczed/include/media/stagefright/ColorConverter.h paczed/include/medi
      status_t convertYUV420SemiPlanar(
              const BitmapParams &src, const BitmapParams &dst);
  
-diff -ur unpaczed/include/media/stagefright/MediaDefs.h paczed/include/media/stagefright/MediaDefs.h
---- unpaczed/include/media/stagefright/MediaDefs.h	2014-01-18 13:22:35.339485505 +0100
-+++ paczed/include/media/stagefright/MediaDefs.h	2014-01-18 13:25:30.775397304 +0100
+diff --git a/include/media/stagefright/MediaDefs.h b/include/media/stagefright/MediaDefs.h
+index 170e587..169dec6 100644
+--- a/include/media/stagefright/MediaDefs.h
++++ b/include/media/stagefright/MediaDefs.h
 @@ -27,8 +27,14 @@
  extern const char *MEDIA_MIMETYPE_VIDEO_AVC;
  extern const char *MEDIA_MIMETYPE_VIDEO_MPEG4;
@@ -130,10 +143,11 @@ diff -ur unpaczed/include/media/stagefright/MediaDefs.h paczed/include/media/sta
  
  extern const char *MEDIA_MIMETYPE_AUDIO_AMR_NB;
  extern const char *MEDIA_MIMETYPE_AUDIO_AMR_WB;
-diff -ur unpaczed/include/media/stagefright/OMXCodec.h paczed/include/media/stagefright/OMXCodec.h
---- unpaczed/include/media/stagefright/OMXCodec.h	2014-01-18 13:22:35.339485505 +0100
-+++ paczed/include/media/stagefright/OMXCodec.h	2014-01-18 13:25:30.775397304 +0100
-@@ -86,6 +86,10 @@
+diff --git a/include/media/stagefright/OMXCodec.h b/include/media/stagefright/OMXCodec.h
+index 8ad8e8c..c9de0c6 100644
+--- a/include/media/stagefright/OMXCodec.h
++++ b/include/media/stagefright/OMXCodec.h
+@@ -86,6 +86,10 @@ struct OMXCodec : public MediaSource,
      // from MediaBufferObserver
      virtual void signalBufferReturned(MediaBuffer *buffer);
  
@@ -144,8 +158,8 @@ diff -ur unpaczed/include/media/stagefright/OMXCodec.h paczed/include/media/stag
      enum Quirks {
          kNeedsFlushBeforeDisable              = 1,
          kWantsNALFragments                    = 2,
-@@ -107,6 +111,9 @@
-         kRequiresGlobalFlush                  = 0x20000000, // 2^29
+@@ -107,6 +111,9 @@ struct OMXCodec : public MediaSource,
+ #ifdef QCOM_HARDWARE
          kRequiresWMAProComponent              = 0x40000000, //2^30
  #endif
 +#ifdef STE_HARDWARE
@@ -154,10 +168,11 @@ diff -ur unpaczed/include/media/stagefright/OMXCodec.h paczed/include/media/stag
      };
  
      struct CodecNameAndQuirks {
-diff -ur unpaczed/media/libstagefright/ACodec.cpp paczed/media/libstagefright/ACodec.cpp
---- unpaczed/media/libstagefright/ACodec.cpp	2014-01-18 13:24:17.839433973 +0100
-+++ paczed/media/libstagefright/ACodec.cpp	2014-01-18 13:25:30.883397250 +0100
-@@ -605,8 +605,12 @@
+diff --git a/media/libstagefright/ACodec.cpp b/media/libstagefright/ACodec.cpp
+index a8124fe..a7dd6bd 100755
+--- a/media/libstagefright/ACodec.cpp
++++ b/media/libstagefright/ACodec.cpp
+@@ -600,8 +600,12 @@ status_t ACodec::configureOutputBuffersFromNativeWindow(
              mNativeWindow.get(),
              def.format.video.nFrameWidth,
              def.format.video.nFrameHeight,
@@ -170,10 +185,11 @@ diff -ur unpaczed/media/libstagefright/ACodec.cpp paczed/media/libstagefright/AC
  
      if (err != 0) {
          ALOGE("native_window_set_buffers_geometry failed: %s (%d)",
-diff -ur unpaczed/media/libstagefright/CameraSource.cpp paczed/media/libstagefright/CameraSource.cpp
---- unpaczed/media/libstagefright/CameraSource.cpp	2014-01-18 13:22:35.419485465 +0100
-+++ paczed/media/libstagefright/CameraSource.cpp	2014-01-18 13:25:30.887397248 +0100
-@@ -127,6 +127,12 @@
+diff --git a/media/libstagefright/CameraSource.cpp b/media/libstagefright/CameraSource.cpp
+index 295c0f5..1ba6bc8 100644
+--- a/media/libstagefright/CameraSource.cpp
++++ b/media/libstagefright/CameraSource.cpp
+@@ -129,6 +129,12 @@ static int32_t getColorFormat(const char* colorFormat) {
         return OMX_TI_COLOR_FormatYUV420PackedSemiPlanar;
      }
  
@@ -186,7 +202,7 @@ diff -ur unpaczed/media/libstagefright/CameraSource.cpp paczed/media/libstagefri
      if (!strcmp(colorFormat, CameraParameters::PIXEL_FORMAT_ANDROID_OPAQUE)) {
          return OMX_COLOR_FormatAndroidOpaque;
      }
-@@ -575,13 +581,22 @@
+@@ -577,13 +583,22 @@ status_t CameraSource::initWithCameraAccess(
  
      // XXX: query camera for the stride and slice height
      // when the capability becomes available.
@@ -209,10 +225,131 @@ diff -ur unpaczed/media/libstagefright/CameraSource.cpp paczed/media/libstagefri
      mMeta->setInt32(kKeyFrameRate,   mVideoFrameRate);
  
  #ifdef QCOM_HARDWARE
-diff -ur unpaczed/media/libstagefright/colorconversion/ColorConverter.cpp paczed/media/libstagefright/colorconversion/ColorConverter.cpp
---- unpaczed/media/libstagefright/colorconversion/ColorConverter.cpp	2014-01-18 13:22:35.567485391 +0100
-+++ paczed/media/libstagefright/colorconversion/ColorConverter.cpp	2014-01-18 13:25:31.167397107 +0100
-@@ -47,6 +47,9 @@
+diff --git a/media/libstagefright/MediaDefs.cpp b/media/libstagefright/MediaDefs.cpp
+index b5d4e44..2eb5c9e 100644
+--- a/media/libstagefright/MediaDefs.cpp
++++ b/media/libstagefright/MediaDefs.cpp
+@@ -25,8 +25,14 @@
+ const char *MEDIA_MIMETYPE_VIDEO_AVC = "video/avc";
+ const char *MEDIA_MIMETYPE_VIDEO_MPEG4 = "video/mp4v-es";
+ const char *MEDIA_MIMETYPE_VIDEO_H263 = "video/3gpp";
++#ifdef STE_HARDWARE
++const char *MEDIA_MIMETYPE_VIDEO_H263_SW = "video/3gpp-sw";
++#endif
+ const char *MEDIA_MIMETYPE_VIDEO_MPEG2 = "video/mpeg2";
+ const char *MEDIA_MIMETYPE_VIDEO_RAW = "video/raw";
++#ifdef STE_HARDWARE
++const char *MEDIA_MIMETYPE_VIDEO_VC1 = "video/vc1";
++#endif
+ 
+ const char *MEDIA_MIMETYPE_AUDIO_AMR_NB = "audio/3gpp";
+ const char *MEDIA_MIMETYPE_AUDIO_AMR_WB = "audio/amr-wb";
+diff --git a/media/libstagefright/OMXCodec.cpp b/media/libstagefright/OMXCodec.cpp
+index 2cea323..054701c 100644
+--- a/media/libstagefright/OMXCodec.cpp
++++ b/media/libstagefright/OMXCodec.cpp
+@@ -257,6 +257,20 @@ static int CompareSoftwareCodecsFirst(
+     return 0;
+ }
+ 
++#ifdef STE_HARDWARE
++uint32_t OMXCodec::OmxToHALFormat(OMX_COLOR_FORMATTYPE omxValue) {
++    switch (omxValue) {
++        case OMX_STE_COLOR_FormatYUV420PackedSemiPlanarMB:
++            return HAL_PIXEL_FORMAT_YCBCR42XMBN;
++        case OMX_COLOR_FormatYUV420Planar:
++            return HAL_PIXEL_FORMAT_YCbCr_420_P;
++        default:
++            ALOGI("Unknown OMX pixel format (0x%X), passing it on unchanged", omxValue);
++            return omxValue;
++    }
++}
++#endif
++
+ // static
+ void OMXCodec::findMatchingCodecs(
+         const char *mime,
+@@ -387,6 +401,12 @@ uint32_t OMXCodec::getComponentQuirks(
+       quirks |= kInputBufferSizesAreBogus;
+     }
+ #endif
++#ifdef STE_HARDWARE
++    if (list->codecHasQuirk(
++                index, "requires-store-metadata-before-idle")) {
++      quirks |= kRequiresStoreMetaDataBeforeIdle;
++    }
++#endif
+ 
+ #ifdef QCOM_HARDWARE
+     quirks |= ExtendedCodec::getComponentQuirks(list,index);
+@@ -972,6 +992,9 @@ static size_t getFrameSize(
+         case OMX_COLOR_FormatYUV420Planar:
+         case OMX_COLOR_FormatYUV420SemiPlanar:
+         case OMX_TI_COLOR_FormatYUV420PackedSemiPlanar:
++#ifdef STE_HARDWARE
++        case OMX_STE_COLOR_FormatYUV420PackedSemiPlanarMB:
++#endif
+         /*
+         * FIXME: For the Opaque color format, the frame size does not
+         * need to be (w*h*3)/2. It just needs to
+@@ -1764,6 +1787,10 @@ void OMXCodec::setComponentRole(
+             "video_decoder.mpeg4", "video_encoder.mpeg4" },
+         { MEDIA_MIMETYPE_VIDEO_H263,
+             "video_decoder.h263", "video_encoder.h263" },
++#ifdef STE_HARDWARE
++        { MEDIA_MIMETYPE_VIDEO_VC1,
++            "video_decoder.vc1", "video_encoder.vc1" },
++#endif
+         { MEDIA_MIMETYPE_VIDEO_VP8,
+             "video_decoder.vp8", "video_encoder.vp8" },
+         { MEDIA_MIMETYPE_VIDEO_VP9,
+@@ -1856,6 +1883,16 @@ status_t OMXCodec::init() {
+     CHECK_EQ((int)mState, (int)LOADED);
+ 
+     status_t err;
++#ifdef STE_HARDWARE
++    if ((mQuirks & kRequiresStoreMetaDataBeforeIdle)
++        && (mFlags & kStoreMetaDataInVideoBuffers)) {
++        err = mOMX->storeMetaDataInBuffers(mNode, kPortIndexInput, OMX_TRUE);
++        if (err != OK) {
++            ALOGE("Storing meta data in video buffers is not supported");
++            return err;
++        }
++    }
++#endif
+     if (!(mQuirks & kRequiresLoadedToIdleAfterAllocation)) {
+         err = mOMX->sendCommand(mNode, OMX_CommandStateSet, OMX_StateIdle);
+         CHECK_EQ(err, (status_t)OK);
+@@ -1915,7 +1952,12 @@ status_t OMXCodec::allocateBuffersOnPort(OMX_U32 portIndex) {
+     }
+ 
+     status_t err = OK;
++#ifdef STE_HARDWARE
++    if (!(mQuirks & kRequiresStoreMetaDataBeforeIdle)
++            && (mFlags & kStoreMetaDataInVideoBuffers)
++#else
+     if ((mFlags & kStoreMetaDataInVideoBuffers)
++#endif
+             && portIndex == kPortIndexInput) {
+         err = mOMX->storeMetaDataInBuffers(mNode, kPortIndexInput, OMX_TRUE);
+         if (err != OK) {
+@@ -2116,7 +2158,11 @@ status_t OMXCodec::allocateOutputBuffersFromNativeWindow() {
+             mNativeWindow.get(),
+             def.format.video.nFrameWidth,
+             def.format.video.nFrameHeight,
++#ifdef STE_HARDWARE
++            OmxToHALFormat(def.format.video.eColorFormat));
++#else
+             def.format.video.eColorFormat);
++#endif
+ #else
+     OMX_COLOR_FORMATTYPE eColorFormat;
+ 
+diff --git a/media/libstagefright/colorconversion/ColorConverter.cpp b/media/libstagefright/colorconversion/ColorConverter.cpp
+index 597167f..a85ad72 100644
+--- a/media/libstagefright/colorconversion/ColorConverter.cpp
++++ b/media/libstagefright/colorconversion/ColorConverter.cpp
+@@ -47,6 +47,9 @@ bool ColorConverter::isValid() const {
          case OMX_QCOM_COLOR_FormatYVU420SemiPlanar:
          case OMX_COLOR_FormatYUV420SemiPlanar:
          case OMX_TI_COLOR_FormatYUV420PackedSemiPlanar:
@@ -222,7 +359,7 @@ diff -ur unpaczed/media/libstagefright/colorconversion/ColorConverter.cpp paczed
              return true;
  
          default:
-@@ -122,6 +125,12 @@
+@@ -122,6 +125,12 @@ status_t ColorConverter::convert(
              err = convertTIYUV420PackedSemiPlanar(src, dst);
              break;
  
@@ -235,7 +372,7 @@ diff -ur unpaczed/media/libstagefright/colorconversion/ColorConverter.cpp paczed
          default:
          {
              CHECK(!"Should not be here. Unknown color conversion.");
-@@ -506,6 +515,142 @@
+@@ -506,6 +515,142 @@ status_t ColorConverter::convertTIYUV420PackedSemiPlanar(
      return OK;
  }
  
@@ -378,121 +515,6 @@ diff -ur unpaczed/media/libstagefright/colorconversion/ColorConverter.cpp paczed
  uint8_t *ColorConverter::initClip() {
      static const signed kClipMin = -278;
      static const signed kClipMax = 535;
-diff -ur unpaczed/media/libstagefright/MediaDefs.cpp paczed/media/libstagefright/MediaDefs.cpp
---- unpaczed/media/libstagefright/MediaDefs.cpp	2014-01-18 13:22:35.423485463 +0100
-+++ paczed/media/libstagefright/MediaDefs.cpp	2014-01-18 13:25:30.895397244 +0100
-@@ -25,8 +25,14 @@
- const char *MEDIA_MIMETYPE_VIDEO_AVC = "video/avc";
- const char *MEDIA_MIMETYPE_VIDEO_MPEG4 = "video/mp4v-es";
- const char *MEDIA_MIMETYPE_VIDEO_H263 = "video/3gpp";
-+#ifdef STE_HARDWARE
-+const char *MEDIA_MIMETYPE_VIDEO_H263_SW = "video/3gpp-sw";
-+#endif
- const char *MEDIA_MIMETYPE_VIDEO_MPEG2 = "video/mpeg2";
- const char *MEDIA_MIMETYPE_VIDEO_RAW = "video/raw";
-+#ifdef STE_HARDWARE
-+const char *MEDIA_MIMETYPE_VIDEO_VC1 = "video/vc1";
-+#endif
- 
- const char *MEDIA_MIMETYPE_AUDIO_AMR_NB = "audio/3gpp";
- const char *MEDIA_MIMETYPE_AUDIO_AMR_WB = "audio/amr-wb";
-diff -ur unpaczed/media/libstagefright/OMXCodec.cpp paczed/media/libstagefright/OMXCodec.cpp
---- unpaczed/media/libstagefright/OMXCodec.cpp	2014-01-18 13:24:17.843433971 +0100
-+++ paczed/media/libstagefright/OMXCodec.cpp	2014-01-18 13:25:30.899397242 +0100
-@@ -257,6 +257,20 @@
-     return 0;
- }
- 
-+#ifdef STE_HARDWARE
-+uint32_t OMXCodec::OmxToHALFormat(OMX_COLOR_FORMATTYPE omxValue) {
-+    switch (omxValue) {
-+        case OMX_STE_COLOR_FormatYUV420PackedSemiPlanarMB:
-+            return HAL_PIXEL_FORMAT_YCBCR42XMBN;
-+        case OMX_COLOR_FormatYUV420Planar:
-+            return HAL_PIXEL_FORMAT_YCbCr_420_P;
-+        default:
-+            ALOGI("Unknown OMX pixel format (0x%X), passing it on unchanged", omxValue);
-+            return omxValue;
-+    }
-+}
-+#endif
-+
- // static
- void OMXCodec::findMatchingCodecs(
-         const char *mime,
-@@ -393,6 +407,12 @@
-       quirks |= kInputBufferSizesAreBogus;
-     }
- #endif
-+#ifdef STE_HARDWARE
-+    if (list->codecHasQuirk(
-+                index, "requires-store-metadata-before-idle")) {
-+      quirks |= kRequiresStoreMetaDataBeforeIdle;
-+    }
-+#endif
- 
- #ifdef QCOM_HARDWARE
-     quirks |= ExtendedCodec::getComponentQuirks(list,index);
-@@ -966,6 +986,9 @@
-         case OMX_COLOR_FormatYUV420Planar:
-         case OMX_COLOR_FormatYUV420SemiPlanar:
-         case OMX_TI_COLOR_FormatYUV420PackedSemiPlanar:
-+#ifdef STE_HARDWARE
-+        case OMX_STE_COLOR_FormatYUV420PackedSemiPlanarMB:
-+#endif
-         /*
-         * FIXME: For the Opaque color format, the frame size does not
-         * need to be (w*h*3)/2. It just needs to
-@@ -1774,6 +1797,10 @@
-             "video_decoder.mpeg4", "video_encoder.mpeg4" },
-         { MEDIA_MIMETYPE_VIDEO_H263,
-             "video_decoder.h263", "video_encoder.h263" },
-+#ifdef STE_HARDWARE
-+        { MEDIA_MIMETYPE_VIDEO_VC1,
-+            "video_decoder.vc1", "video_encoder.vc1" },
-+#endif
-         { MEDIA_MIMETYPE_VIDEO_VP8,
-             "video_decoder.vp8", "video_encoder.vp8" },
-         { MEDIA_MIMETYPE_VIDEO_VP9,
-@@ -1866,6 +1893,16 @@
-     CHECK_EQ((int)mState, (int)LOADED);
- 
-     status_t err;
-+#ifdef STE_HARDWARE
-+    if ((mQuirks & kRequiresStoreMetaDataBeforeIdle)
-+        && (mFlags & kStoreMetaDataInVideoBuffers)) {
-+        err = mOMX->storeMetaDataInBuffers(mNode, kPortIndexInput, OMX_TRUE);
-+        if (err != OK) {
-+            ALOGE("Storing meta data in video buffers is not supported");
-+            return err;
-+        }
-+    }
-+#endif
-     if (!(mQuirks & kRequiresLoadedToIdleAfterAllocation)) {
-         err = mOMX->sendCommand(mNode, OMX_CommandStateSet, OMX_StateIdle);
-         CHECK_EQ(err, (status_t)OK);
-@@ -1925,7 +1962,12 @@
-     }
- 
-     status_t err = OK;
-+#ifdef STE_HARDWARE
-+    if (!(mQuirks & kRequiresStoreMetaDataBeforeIdle)
-+            && (mFlags & kStoreMetaDataInVideoBuffers)
-+#else
-     if ((mFlags & kStoreMetaDataInVideoBuffers)
-+#endif
-             && portIndex == kPortIndexInput) {
-         err = mOMX->storeMetaDataInBuffers(mNode, kPortIndexInput, OMX_TRUE);
-         if (err != OK) {
-@@ -2125,7 +2167,11 @@
-             mNativeWindow.get(),
-             def.format.video.nFrameWidth,
-             def.format.video.nFrameHeight,
-+#ifdef STE_HARDWARE
-+            OmxToHALFormat(def.format.video.eColorFormat));
-+#else
-             def.format.video.eColorFormat);
-+#endif
- #else
-     OMX_COLOR_FORMATTYPE eColorFormat;
- 
+-- 
+1.8.5.5
+
