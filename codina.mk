@@ -660,13 +660,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/etc/LVVEFS_tuning_parameters/Tx_ControlParams_SPEAKER_VT.txt:system/etc/LVVEFS_tuning_parameters/Tx_ControlParams_SPEAKER_VT.txt \
     $(LOCAL_PATH)/prebuilt/etc/LVVEFS_tuning_parameters/Tx_ControlParams_SPEAKER_WB.txt:system/etc/LVVEFS_tuning_parameters/Tx_ControlParams_SPEAKER_WB.txt
 
-# Storage switch script
-# PRODUCT_COPY_FILES += \
-#     $(LOCAL_PATH)/configs/SwapStorages.sh:system/xbin/SwapStorages.sh
-# PRODUCT_PROPERTY_OVERRIDES += \
-#     persist.sys.vold.switchablepair=sdcard0,sdcard1 \
-#     persist.sys.vold.switchexternal=0
-
 # Use the Dalvik VM specific for devices with 512 MB of RAM
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 
