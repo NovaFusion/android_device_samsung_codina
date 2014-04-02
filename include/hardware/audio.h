@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2011 The Android Open Source Project
- * Copyright (c) 2011-2013, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2011-2014, The Linux Foundation. All rights reserved.
  * Not a Contribution.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -30,6 +30,9 @@
 #include <hardware/hardware.h>
 #include <system/audio.h>
 #include <hardware/audio_effect.h>
+#ifdef AUDIO_LISTEN_ENABLED
+#include <listen_types.h>
+#endif
 
 __BEGIN_DECLS
 
@@ -124,6 +127,31 @@ __BEGIN_DECLS
  * "sup_sampling_rates=44100|48000" */
 #define AUDIO_PARAMETER_STREAM_SUP_SAMPLING_RATES "sup_sampling_rates"
 
+/**
+ * audio codec parameters
+ */
+
+#define AUDIO_OFFLOAD_CODEC_PARAMS "music_offload_codec_param"
+#define AUDIO_OFFLOAD_CODEC_BIT_PER_SAMPLE "music_offload_bit_per_sample"
+#define AUDIO_OFFLOAD_CODEC_BIT_RATE "music_offload_bit_rate"
+#define AUDIO_OFFLOAD_CODEC_AVG_BIT_RATE "music_offload_avg_bit_rate"
+#define AUDIO_OFFLOAD_CODEC_ID "music_offload_codec_id"
+#define AUDIO_OFFLOAD_CODEC_BLOCK_ALIGN "music_offload_block_align"
+#define AUDIO_OFFLOAD_CODEC_SAMPLE_RATE "music_offload_sample_rate"
+#define AUDIO_OFFLOAD_CODEC_ENCODE_OPTION "music_offload_encode_option"
+#define AUDIO_OFFLOAD_CODEC_NUM_CHANNEL  "music_offload_num_channels"
+#define AUDIO_OFFLOAD_CODEC_DOWN_SAMPLING  "music_offload_down_sampling"
+#define AUDIO_OFFLOAD_CODEC_DELAY_SAMPLES  "delay_samples"
+#define AUDIO_OFFLOAD_CODEC_PADDING_SAMPLES  "padding_samples"
+#define AUDIO_OFFLOAD_CODEC_WMA_FORMAT_TAG "music_offload_wma_format_tag"
+#define AUDIO_OFFLOAD_CODEC_WMA_BLOCK_ALIGN "music_offload_wma_block_align"
+#define AUDIO_OFFLOAD_CODEC_WMA_BIT_PER_SAMPLE "music_offload_wma_bit_per_sample"
+#define AUDIO_OFFLOAD_CODEC_WMA_CHANNEL_MASK "music_offload_wma_channel_mask"
+#define AUDIO_OFFLOAD_CODEC_WMA_ENCODE_OPTION "music_offload_wma_encode_option"
+#define AUDIO_OFFLOAD_CODEC_WMA_ENCODE_OPTION1"music_offload_wma_encode_option1"
+#define AUDIO_OFFLOAD_CODEC_WMA_ENCODE_OPTION2 "music_offload_wma_encode_option2"
+#define AUDIO_OFFLOAD_CODEC_FORMAT  "music_offload_codec_format"
+
 /* Query handle fm parameter*/
 #define AUDIO_PARAMETER_KEY_HANDLE_FM "handle_fm"
 
@@ -151,23 +179,6 @@ __BEGIN_DECLS
 /* Query fm volume */
 #define AUDIO_PARAMETER_KEY_FM_VOLUME "fm_volume"
 
-/**
- * audio codec parameters
- */
-
-#define AUDIO_OFFLOAD_CODEC_PARAMS "music_offload_codec_param"
-#define AUDIO_OFFLOAD_CODEC_BIT_PER_SAMPLE "music_offload_bit_per_sample"
-#define AUDIO_OFFLOAD_CODEC_BIT_RATE "music_offload_bit_rate"
-#define AUDIO_OFFLOAD_CODEC_AVG_BIT_RATE "music_offload_avg_bit_rate"
-#define AUDIO_OFFLOAD_CODEC_ID "music_offload_codec_id"
-#define AUDIO_OFFLOAD_CODEC_BLOCK_ALIGN "music_offload_block_align"
-#define AUDIO_OFFLOAD_CODEC_SAMPLE_RATE "music_offload_sample_rate"
-#define AUDIO_OFFLOAD_CODEC_ENCODE_OPTION "music_offload_encode_option"
-#define AUDIO_OFFLOAD_CODEC_NUM_CHANNEL  "music_offload_num_channels"
-#define AUDIO_OFFLOAD_CODEC_DOWN_SAMPLING  "music_offload_down_sampling"
-#define AUDIO_OFFLOAD_CODEC_DELAY_SAMPLES  "delay_samples"
-#define AUDIO_OFFLOAD_CODEC_PADDING_SAMPLES  "padding_samples"
-
 /**************************************/
 
 /* common audio stream configuration parameters
@@ -182,7 +193,7 @@ struct audio_config {
 };
 typedef struct audio_config audio_config_t;
 
-#ifdef QCOM_HARDWARE
+#ifdef QCOM_DIRECTTRACK
 /** Structure to save buffer information for applying effects for
  *  LPA buffers */
 struct buf_info {
@@ -339,7 +350,7 @@ struct audio_stream_out {
                                uint32_t *dsp_frames);
 
 #ifndef ICS_AUDIO_BLOB
-#ifdef QCOM_HARDWARE
+#ifdef QCOM_DIRECTTRACK
     /**
      * start audio data rendering
      */
@@ -432,7 +443,7 @@ struct audio_stream_out {
     int (*get_presentation_position)(const struct audio_stream_out *stream,
                                uint64_t *frames, struct timespec *timestamp);
 #endif
-#ifdef QCOM_HARDWARE
+#ifdef QCOM_DIRECTTRACK
     /**
     * return the current timestamp after quering to the driver
      */
@@ -494,54 +505,65 @@ static inline size_t audio_stream_frame_size(const struct audio_stream *s)
 {
     size_t chan_samp_sz;
 #ifdef QCOM_HARDWARE
+    audio_format_t format = s->get_format(s);
     uint32_t chan_mask = s->get_channels(s);
-    int format = s->get_format(s);
-    char *tmpparam;
-    int isParamEqual;
+    if(audio_is_output_channel(chan_mask)) {
+        if (audio_is_linear_pcm(format) &&
+                format != AUDIO_FORMAT_PCM_8_24_BIT) {
+            chan_samp_sz = audio_bytes_per_sample(format);
+            return popcount(s->get_channels(s)) * chan_samp_sz;
+        }
+        return sizeof(int8_t);
+    } else if (audio_is_input_channel(chan_mask)) {
+        char *tmpparam;
+        int isParamEqual;
 
-    if(!s)
-        return 0;
-    if (audio_is_input_channel(chan_mask)) {
+        if(!s)
+            return 0;
+
         chan_mask &= (AUDIO_CHANNEL_IN_STEREO | \
                       AUDIO_CHANNEL_IN_MONO | \
                       AUDIO_CHANNEL_IN_5POINT1);
-    }
-    tmpparam = s->get_parameters(s, "voip_flag");
-    isParamEqual = !strncmp(tmpparam,"voip_flag=1", sizeof("voip_flag=1"));
-    free(tmpparam);
-    if(isParamEqual) {
-        if(format != AUDIO_FORMAT_PCM_8_BIT)
-            return popcount(chan_mask) * sizeof(int16_t);
-        else
-            return popcount(chan_mask) * sizeof(int8_t);
-    }
 
-    switch (format) {
-    case AUDIO_FORMAT_AMR_NB:
-        chan_samp_sz = 32;
-        break;
-    case AUDIO_FORMAT_EVRC:
-        chan_samp_sz = 23;
-        break;
-    case AUDIO_FORMAT_QCELP:
-        chan_samp_sz = 35;
-        break;
-    case AUDIO_FORMAT_AMR_WB:
-        chan_samp_sz = 61;
-        break;
-    case AUDIO_FORMAT_PCM_16_BIT:
-        chan_samp_sz = sizeof(int16_t);
-        break;
-    case AUDIO_FORMAT_PCM_8_BIT:
-    default:
-        chan_samp_sz = sizeof(int8_t);
-        break;
+        tmpparam = s->get_parameters(s, "voip_flag");
+        isParamEqual = !strncmp(tmpparam,"voip_flag=1", sizeof("voip_flag=1"));
+        free(tmpparam);
+        if(isParamEqual) {
+            if(format != AUDIO_FORMAT_PCM_8_BIT)
+                return popcount(chan_mask) * sizeof(int16_t);
+            else
+                return popcount(chan_mask) * sizeof(int8_t);
+        }
+
+        switch (format) {
+
+        case AUDIO_FORMAT_AMR_NB:
+            chan_samp_sz = 32;
+            break;
+        case AUDIO_FORMAT_EVRC:
+            chan_samp_sz = 23;
+            break;
+        case AUDIO_FORMAT_QCELP:
+            chan_samp_sz = 35;
+            break;
+        case AUDIO_FORMAT_AMR_WB:
+            chan_samp_sz = 61;
+            break;
+        case AUDIO_FORMAT_PCM_16_BIT:
+            chan_samp_sz = sizeof(int16_t);
+            break;
+        case AUDIO_FORMAT_PCM_8_BIT:
+        default:
+            chan_samp_sz = sizeof(int8_t);
+            break;
+        }
+        return popcount(chan_mask) * chan_samp_sz;
     }
-    return popcount(chan_mask) * chan_samp_sz;
 #else
     audio_format_t format = s->get_format(s);
 
-    if (audio_is_linear_pcm(format)) {
+    if (audio_is_linear_pcm(format) &&
+            format != AUDIO_FORMAT_PCM_8_24_BIT) {
         chan_samp_sz = audio_bytes_per_sample(format);
         return popcount(s->get_channels(s)) * chan_samp_sz;
     }
@@ -707,6 +729,29 @@ struct audio_hw_device {
      */
     int (*get_master_mute)(struct audio_hw_device *dev, bool *mute);
 #endif
+
+#ifdef AUDIO_LISTEN_ENABLED
+    /** This method creates the listen session and returns handle */
+    int (*open_listen_session)(struct audio_hw_device *dev,
+                              listen_open_params_t *params,
+                              struct listen_session** handle);
+
+    /** This method closes the listen session  */
+    int (*close_listen_session)(struct audio_hw_device *dev,
+                                struct listen_session* handle);
+
+    /** This method sets the mad observer callback  */
+    int (*set_mad_observer)(struct audio_hw_device *dev,
+                            listen_callback_t cb_func);
+
+    /**
+     *   This method is used for setting listen hal specfic parameters.
+     *  If multiple paramets are set in one call and setting any one of them
+     *  fails it will return failure.
+     */
+    int (*listen_set_parameters)(struct audio_hw_device *dev,
+                                 const char *kv_pairs);
+#endif
 };
 typedef struct audio_hw_device audio_hw_device_t;
 
@@ -724,7 +769,7 @@ static inline int audio_hw_device_close(struct audio_hw_device* device)
     return device->common.close(&device->common);
 }
 
-#ifdef QCOM_HARDWARE
+#ifdef QCOM_DIRECTTRACK
 #ifdef __cplusplus
 /**
  *Observer class to post the Events from HAL to Flinger
