@@ -1,0 +1,33 @@
+﻿<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string-array name="mali_l2_mr_entries">
+        <item>28kb (原本)</item>
+        <item>48kb (默认值)</item>
+    </string-array>
+    <string-array name="fsync_mode_entries">
+        <item>启用 (默认值)</item>
+        <item>关闭</item>
+        <item>灵活</item>
+    </string-array>
+    <string-array name="cc_currency_usb_entries">
+        <item>800 mA *小心*</item>
+        <item>600 mA (快速充电)</item>
+        <item>400 mA</item>
+    </string-array>
+    <string-array name="deepest_sleep_states_entries">
+        <item>状况 5</item>
+        <item>状况 4</item>
+        <item>状况 3 (默认值)</item>
+    </string-array>
+    <string-array name="cc_currency_charger_entries">
+        <item>800 mA *小心*</item>
+        <item>600 mA (默认值)</item>yu
+        <item>400 mA</item>
+    </string-array>
+    <string-array name="hspa_entries">
+        <item>UMTS 而已</item>
+        <item>HSDPA 而已</item>
+        <item>HSDPA 与 HSUPA</item>
+    </string-array>
+
+</resources>

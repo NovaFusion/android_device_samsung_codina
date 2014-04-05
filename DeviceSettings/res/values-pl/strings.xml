@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App name -->
+    <string name="app_name">Ustawienia Galaxy Ace 2</string>
+
+    <!-- TAB: General -->
+    <string name="category_general_title">Ogólne</string>
+
+    <!-- CATEGORY: Radio mode -->
+    <string name="radio_subcat_title">Tryb Radia</string>
+    <string name="hspa_title_head">HSPA</string>
+    <string name="hspa_summary_head">Włącz HSDPA/HSUPA</string>
+
+    <!-- CATEGORY: Accelerometer -->
+    <string name="accelerometer_subcat_title">Akcelerometr</string>
+    <string name="use_accelerometer_calibration_title_head">Użyj danych kalibracyjnych</string>
+    <string name="use_accelerometer_calibration_summary_head">Użyj wartości kalibracyjnych akcelerometru. Zrób kalibracje po wybraniu tej opcji!</string>
+    <string name="calibrate_accelerometer_title_head">Kalibruj</string>
+    <string name="calibrate_accelerometer_summary_head">Połóż telefon na płaskiej powierzchni, następnie naciśnij by kalibrować</string>
+    <string name="accelerometer_dialog_head">Kalibracja zakończona</string>
+    <string name="accelerometer_dialog_message">Czujnik został pomyślnie skalibrowany.</string>
+
+    <!-- TAB: USB -->
+    <string name="category_usb_title">USB</string>
+
+    <!-- CATEGORY: USB OTG Settings -->
+    <string name="otg_subcat_title">Ustawienia USB OTG</string>
+    <string name="otg_power_title_head">USB-VBUS Power</string>
+    <string name="otg_power_summary_head">Włącza wyjście napięcia do portu USB</string>
+
+    <!-- CATEGORY: Charger Control -->
+    <string name="cc_subcat_title">Kontrola ładowania</string>
+    <string name="ac_cc_title_head">Wartość dla ładowarki sieciowej</string>
+    <string name="ac_cc_summary_head">Wartość dla ładowarki sieciowej w mAh, niski poziom chroni baterię, ale wymaga dłuższego ładowania, wysokie poziomy mogą skrócić żywotność baterii</string>
+    <string name="usb_cc_title_head">Wartość dla kabla USB</string>
+    <string name="usb_cc_summary_head">Wartość dla kabla USB w mAh, przydatne dla opcji "Fast Charge", niski poziom chroni baterię, ale wymaga dłuższego ładowania, wysokie poziomy mogą skrócić żywotność baterii</string>
+
+    <!-- CATEGORY: Charger Control -->
+    <string name="deepsleep_subcat_title">Głęboki sen</string>
+    <string name="deepest_sleep_title_head">Najwyższy poziom głębokiego snu</string>
+    <string name="deepest_sleep_summary_head">Wybierz najwyższy poziom stanu głębokiego snu</string>
+
+    <!-- TAB: ADVANCED -->
+    <string name="category_advanced_title">Zaawansowane</string>
+
+    <!-- CATEGORY: FSync -->
+    <string name="fsync_subcat_title">FSync</string>
+    <string name="fsync_title_head">Tryb FSync</string>
+    <string name="fsync_summary_head">Wyłączenie FSync może przyspieszyć operacje wyjścia/wejścia, ale może spowodować uszkodzenie danych. Fsync dynamiczny będzie synchronizował wszystkie bufory po wyłączeniu ekranu.</string>
+
+    <!-- CATEGORY: GPU -->
+    <string name="gpu_subcat_title">GPU</string>
+    <string name="mali_l2_mr_title_head">Mali L2 Max Reads</string>
+    <string name="mali_l2_mr_summary_head">Zwiększenie tej wartości może poprawić osiągi układu graficznego.</string>
+    <string name="mali_pam_title_head">Rozmiar przydzielonej pamięci graficznej</string>
+    <string name="mali_pam_summary_head">Zwiększenie tej wartości może poprawić osiągi układu graficznego.</string>
+
+    <!-- CATEGORY: MMC -->
+    <string name="mmc_subcat_title">MMC</string>
+    <string name="use_spi_crc_title_head">Wyłączenie SPI CRC</string>
+    <string name="use_spi_crc_summary_head">Wyłączenie SPI CRC może zwiększyć osiągi MMC (10% - 30%) ale telefon może się losowo zawieszać</string>
+
+    <!-- CATEGORY: STORAGE -->
+    <string name="storage_subcat_title">Pamięci</string>
+    <string name="switch_storage_title_head">Zamiana pamięci</string>
+    <string name="switch_storage_summary_head">Zamienia wewnętrzną pamięć z zewnętrzną kartą micro-sd. Wymagany restart urządzenia!.</string>
+
+    <!-- CATEGORY: TouchScreen -->
+    <string name="touchscreen_subcat_title">Ekran dotykowy</string>
+    <string name="use_sweep2wake_title_head">Sweep2Wake</string>
+    <string name="use_sweep2wake_summary_head">Odblokowuje urządzenie przesunięciem palca</string>
+
+</resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/touchscreen_subcat_title" >
+        <CheckBoxPreference
+            android:key="use_sweep2wake"
+            android:summary="@string/use_sweep2wake_summary_head"
+            android:title="@string/use_sweep2wake_title_head" />
+        <com.teamcanjica.settings.device.S2WThreshold
+            android:key="x_sweep2wake"
+            android:summary="@string/x_sweep2wake_summary_head"
+            android:title="@string/x_sweep2wake_title_head"
+            android:digits="0123456789"
+            android:inputType="number"
+            android:defaultValue="120" />
+        <com.teamcanjica.settings.device.S2WThreshold
+            android:key="y_sweep2wake"
+            android:summary="@string/y_sweep2wake_summary_head"
+            android:title="@string/y_sweep2wake_title_head"
+            android:digits="0123456789"
+            android:inputType="number"
+            android:defaultValue="240" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/fsync_subcat_title" >
+        <com.teamcanjica.settings.device.FsyncMode
+            android:defaultValue="0"
+            android:entries="@array/fsync_mode_entries"
+            android:entryValues="@array/fsync_mode_entries_values"
+            android:key="fsync_mode"
+            android:summary="@string/fsync_summary_head"
+            android:title="@string/fsync_title_head" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/gpu_subcat_title" >
+        <com.teamcanjica.settings.device.MaliL2MaxReads
+            android:defaultValue="48"
+            android:entries="@array/mali_l2_mr_entries"
+            android:entryValues="@array/mali_l2_mr_entries_values"
+            android:key="mali_l2_mr"
+            android:summary="@string/mali_l2_mr_summary_head"
+            android:title="@string/mali_l2_mr_title_head" />
+
+        <com.teamcanjica.settings.device.MaliPreAllocMem
+            android:defaultValue="50331648"
+            android:entries="@array/mali_pam_entries"
+            android:entryValues="@array/mali_pam_entries_values"
+            android:key="mali_pam"
+            android:summary="@string/mali_pam_summary_head"
+            android:title="@string/mali_pam_title_head" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

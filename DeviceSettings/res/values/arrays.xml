@@ -1,0 +1,137 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Settings list entries-->
+    <string-array name="settings_entries">
+        <item>Network</item>
+        <item>USB</item>
+        <item>Audio</item>
+        <item>Screen</item>
+        <item>Power Management</item>
+        <item>Advanced</item>
+    </string-array>
+
+    <!-- GPU -->
+    <string-array name="mali_l2_mr_entries">
+        <item>28kb (stock)</item>
+        <item>48kb (default)</item>
+    </string-array>
+    <string-array name="mali_l2_mr_entries_values" translatable="false">
+        <item>28</item>
+        <item>48</item>
+    </string-array>
+    <string-array name="mali_pam_entries" translatable="false">
+        <item>16MB</item>
+        <item>24MB</item>
+        <item>32MB</item>
+        <item>48MB</item>
+    </string-array>
+    <string-array name="mali_pam_entries_values" translatable="false">
+        <item>16777216</item>
+        <item>25165824</item>
+        <item>33554432</item>
+        <item>50331648</item>
+    </string-array>
+    
+    <!-- Fsync -->
+    <string-array name="fsync_mode_entries">
+        <item>Enabled (default)</item>
+        <item>Disabled</item>
+        <item>Dynamic</item>
+    </string-array>
+    <string-array name="fsync_mode_entries_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    
+    <!-- USB -->
+    <string-array name="cc_currency_usb_entries">
+        <item>800 mA *WARNING*</item>
+        <item>600 mA (fast charge)</item>
+        <item>400 mA</item>
+    </string-array>
+    <string-array name="cc_currency_usb_entries_values" translatable="false">
+        <item>800</item>
+        <item>600</item>
+        <item>400</item>
+    </string-array>
+    <string-array name="cc_currency_charger_entries">
+        <item>800 mA   *WARNING*</item>
+        <item>600 mA (default)</item>
+        <item>400 mA</item>
+    </string-array>
+    <string-array name="cc_currency_charger_entries_values" translatable="false">
+        <item>800</item>
+        <item>600</item>
+        <item>400</item>
+    </string-array>
+    
+    <!-- Deep Sleep -->
+    <string-array name="deepest_sleep_states_entries">
+        <item>State 5</item>
+        <item>State 4</item>
+        <item>State 3 (default)</item>
+    </string-array>
+    <string-array name="deepest_sleep_states_entries_values" translatable="false">
+        <item>5</item>
+        <item>4</item>
+        <item>3</item>
+    </string-array>
+    
+    <!-- HSPA -->
+    <string-array name="hspa_entries">
+        <item>UMTS Only</item>
+        <item>HSDPA Only</item>
+        <item>HSDPA + HSUPA</item>
+    </string-array>
+    <string-array name="hspa_entries_values" translatable="false">
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+    </string-array>
+    
+    <!-- TCP -->
+    <string-array name="tcp_control_entries" translatable="false">
+        <item>cubic</item>
+        <item>reno</item>
+        <item>westwood</item>
+        <item>bic</item>
+        <item>htcp</item>
+        <item>hstcp</item>
+        <item>hybla</item>
+        <item>vegas</item>
+        <item>scalable</item>
+        <item>lp</item>
+        <item>veno</item>
+        <item>yeah</item>
+        <item>illinois</item>
+    </string-array>
+    <string-array name="tcp_control_entries_values" translatable="false">
+        <item>cubic</item>
+        <item>reno</item>
+        <item>westwood</item>
+        <item>bic</item>
+        <item>htcp</item>
+        <item>hstcp</item>
+        <item>hybla</item>
+        <item>vegas</item>
+        <item>scalable</item>
+        <item>lp</item>
+        <item>veno</item>
+        <item>yeah</item>
+        <item>illinois</item>
+    </string-array>
+
+    <!-- Scheduler -->
+    <string-array name="sched_mc_entries">
+        <item>Disabled</item>
+        <item>Mild</item>
+        <item>Aggressive</item>
+    </string-array>
+    <string-array name="sched_mc_entries_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+</resources>

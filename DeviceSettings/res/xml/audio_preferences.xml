@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cyanogenmod="http://schemas.android.com/apk/res-auto" >
+            
+    <PreferenceCategory android:title="@string/headsetgain_subcat_title" >
+        <!-- AnaGain3 -->
+        <CheckBoxPreference
+            android:key="enable_anagain3"
+            android:summary="@string/enable_anagain3_summary_head"
+            android:title="@string/enable_anagain3_title_head" />
+        
+        <!-- AnaGain3 Control -->
+        <com.teamcanjica.settings.device.AnaGain3Control
+        	android:defaultValue="0"
+        	android:dialogMessage="@string/anagain3_control_dialog_message"
+        	android:max="15"
+        	android:title="@string/anagain3_control_title_head"
+        	cyanogenmod:progressTextSuffix=""
+        	cyanogenmod:min="0"
+        	android:key="anagain3_control" />
+        
+        <!-- HsLDigGain -->
+        <CheckBoxPreference
+            android:key="enable_hsldiggain"
+            android:summary="@string/enable_hsldiggain_summary_head"
+            android:title="@string/enable_hsldiggain_title_head" />
+        
+        <!-- HsRDigGain -->
+        <CheckBoxPreference
+            android:key="enable_hsrdiggain"
+            android:summary="@string/enable_hsrdiggain_summary_head"
+            android:title="@string/enable_hsrdiggain_title_head" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/miscgain_subcat_title" >
+        <!-- ADDigGain2 -->
+        <CheckBoxPreference
+            android:key="enable_addiggain2"
+            android:summary="@string/enable_addiggain2_summary_head"
+            android:title="@string/enable_addiggain2_title_head" />
+        
+        <!-- EarDigGain -->
+        <CheckBoxPreference
+            android:key="enable_eardiggain"
+            android:summary="@string/enable_eardiggain_summary_head"
+            android:title="@string/enable_eardiggain_title_head" />
+                
+        <!-- ClassDHPG -->
+        <CheckBoxPreference
+            android:key="enable_classdhpg"
+            android:summary="@string/enable_classdhpg_summary_head"
+            android:title="@string/enable_classdhpg_title_head" />
+    </PreferenceCategory>
+        
+    <PreferenceCategory android:title="@string/powermodes_subcat_title" >
+        <!-- HsLowPow -->
+        <CheckBoxPreference
+            android:key="enable_hslowpow"
+            android:summary="@string/enable_hslowpow_summary_head"
+            android:title="@string/enable_hslowpow_title_head" />
+        
+        <!-- HsDacLowPow -->
+        <CheckBoxPreference
+            android:key="enable_hsdaclowpow"
+            android:summary="@string/enable_hsdaclowpow_summary_head"
+            android:title="@string/enable_hsdaclowpow_title_head" />
+    </PreferenceCategory>
+        
+    <PreferenceCategory android:title="@string/miscellaneous_subcat_title" >
+        <!-- HsHpEn -->
+        <CheckBoxPreference
+            android:key="enable_hshpen"
+            android:summary="@string/enable_hshpen_summary_head"
+            android:title="@string/enable_hshpen_title_head" />
+        
+        <!-- ClassDDithWGain -->
+        <CheckBoxPreference
+            android:key="enable_classdwg"
+            android:summary="@string/enable_classdwg_summary_head"
+            android:title="@string/enable_classdwg_title_head" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/wifi_subcat_title" >
+        <CheckBoxPreference
+            android:key="use_wifipm_max"
+            android:summary="@string/use_wifipm_max_summary_head"
+            android:title="@string/use_wifipm_max_title_head" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/scheduler_subcat_title" >
+        <com.teamcanjica.settings.device.SchedMC
+            android:defaultValue="0"
+            android:entries="@array/sched_mc_entries"
+            android:entryValues="@array/sched_mc_entries_values"
+            android:key="sched_mc"
+            android:summary="@string/sched_mc_summary_head"
+            android:title="@string/sched_mc_title_head" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/deepsleep_subcat_title" >
+        <com.teamcanjica.settings.device.DeepestSleepState
+            android:defaultValue="3"
+            android:entries="@array/deepest_sleep_states_entries"
+            android:entryValues="@array/deepest_sleep_states_entries_values"
+            android:key="deepest_sleep_state"
+            android:summary="@string/deepest_sleep_summary_head"
+            android:title="@string/deepest_sleep_title_head" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

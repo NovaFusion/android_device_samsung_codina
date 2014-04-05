@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2012 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+
+
+
+-->
+<resources>
+
+    <!-- App name -->
+    <string name="app_name">Настройки Galaxy Ace 2</string>
+
+    <!-- TAB: General -->
+    <string name="category_general_title">Основные</string>
+
+    <!-- CATEGORY: Radio mode -->
+    <string name="radio_subcat_title">Режим работы сети</string>
+    <string name="hspa_title_head">HSPA</string>
+    <string name="hspa_summary_head">Включение HSDPA/HSUPA</string>
+
+    <!-- CATEGORY: Accelerometer -->
+    <string name="accelerometer_subcat_title">Датчик ускорения</string>
+    <string name="use_accelerometer_calibration_title_head">Использовать данные калибровки</string>
+    <string name="use_accelerometer_calibration_summary_head">Использовать полученные данные калибровки. Выполните калибровку после выбора данной опции</string>
+    <string name="calibrate_accelerometer_title_head">Калибровать</string>
+    <string name="calibrate_accelerometer_summary_head">Положите телефон на плоскую поверхность и нажмите сюда для продолжения</string>
+    <string name="accelerometer_dialog_head">Калибровка выполнена</string>
+    <string name="accelerometer_dialog_message">Датчик был успешно откалиброван</string>
+
+    <!-- TAB: USB -->
+    <string name="category_usb_title">USB</string>
+
+    <!-- CATEGORY: USB OTG Settings -->
+    <string name="otg_subcat_title">Настройки USB OTG</string>
+    <string name="otg_power_title_head">Питание USB-VBUS</string>
+    <string name="otg_power_summary_head">Включает подачу напряжения на USB порт</string>
+
+    <!-- CATEGORY: Charger Control -->
+    <string name="cc_subcat_title">Управление зарядкой</string>
+    <string name="ac_cc_title_head">Ток зарядного устройства</string>
+    <string name="ac_cc_summary_head">Ток зарядного устройства в мА, низкие значения защищают батарею, но увеличивают время зарядки, высокие значения могут сократить срок службы батареи</string>
+    <string name="usb_cc_title_head">Ток по USB-кабелю</string>
+    <string name="usb_cc_summary_head">Ток по USB-кабелю в мА, полезно для реализации режима быстрой зарядки, низкие значения защищают батарею, но увеличивают время зарядки, высокие значения могут сократить срок службы батареи</string>
+
+    <!-- CATEGORY: Deep Sleep -->
+    <string name="deepsleep_subcat_title">Состояние сна</string>
+    <string name="deepest_sleep_title_head">Максимально глубокое состояние</string>
+    <string name="deepest_sleep_summary_head">Устанавливает максимально допустимое состояние глубокого сна процессора/системы</string>
+    
+    <!-- TAB: ADVANCED -->
+    <string name="category_advanced_title">Расширенные</string>
+
+    <!-- CATEGORY: FSync -->
+    <string name="fsync_subcat_title">FSync</string>
+    <string name="fsync_title_head">Режим FSync</string>
+    <string name="fsync_summary_head">Выключение принудительного сброса буферов может улучшить производительность при работе с флеш-памятью, но также вызвать потерю либо повреждение данных. В динамическом режиме буферы будут сбрасываться при выключении экрана</string>
+
+    <!-- CATEGORY: GPU -->
+    <string name="gpu_subcat_title">GPU</string>
+    <string name="mali_l2_mr_title_head">Mali L2 Max Reads</string>
+    <string name="mali_l2_mr_summary_head">Увеличение значения параметра может улучшить графическую производительность</string>
+    <string name="mali_pam_title_head">Mali Pre-allocated memory size</string>
+    <string name="mali_pam_summary_head">Увеличение значения параметра может улучшить графическую производительность</string>
+    
+    <!-- CATEGORY: MMC -->
+   <string name="mmc_subcat_title">MMC</string>
+    <string name="use_spi_crc_title_head">Disable SPI CRC</string>
+    <string name="use_spi_crc_summary_head">Disabling SPI CRC can improve mmc performance (10% - 30%) but phone may freeze randomly</string>
+    
+    <!-- CATEGORY: STORAGE -->
+    <string name="storage_subcat_title">Раздел данных</string>
+    <string name="switch_storage_title_head">Поменять память местами</string>
+    <string name="switch_storage_summary_head">Меняет местами внутреннюю память устройства и внешнюю SD-карту</string>
+
+</resources>

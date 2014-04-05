@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App name -->
+    <string name="app_name">Galaxy Ace 2 Postavke</string>
+    <string name="image">Minijatura</string>
+
+    <!-- CATEGORY: Network -->
+    <string name="network_name">Mreža</string>
+
+    <!-- SUBCATEGORY: Radio mode -->
+    <string name="radio_subcat_title">Radio status</string>
+    <string name="hspa_title_head">HSPA</string>
+    <string name="hspa_summary_head">Uključivanje HSDPA/HSUPA</string>
+
+    <!-- SUBCATEGORY: TCP -->
+    <string name="tcp_subcat_title">TCP</string>
+    <string name="tcp_title_head">TCP Algoritam</string>
+    <string name="tcp_summary_head">Promjena utječe na brzinu preuzimanja i brzinu slanja</string>
+
+    <!-- CATEGORY: USB -->
+    <string name="usb_name">USB</string>
+
+    <!-- SUBCATEGORY: USB OTG Settings -->
+    <string name="otg_subcat_title">USB OTG Postavke</string>
+    <string name="otg_power_title_head">USB-VBUS Power</string>
+    <string name="otg_power_summary_head">Uključije izlazni napon na USB priključak</string>
+
+    <!-- SUBCATEGORY: Charger Control -->
+    <string name="cc_subcat_title">Kontroliranje punjenja</string>
+    <string name="ac_cc_title_head">Jakost zidnog punjača</string>
+    <string name="ac_cc_summary_head">Smanjivanjem se štiti baterija ali punjenje traje duže, povećavanjem se može smanjiti vijek baterije</string>
+    <string name="usb_cc_title_head">Jakost USB punjenja</string>
+    <string name="usb_cc_summary_head">Korisno je odabrati Brzo Punjenje. Smanjivanjem se štiti baterija ali punjenje traje duže, povećavanjem se može smanjiti vijek baterije</string>
+
+    <!-- CATEGORY: AUDIO -->
+    <string name="audio_name">Zvuk</string>
+
+   <!-- CATEGORY: SCREEN -->
+    <string name="screen_name">Zaslon</string>
+
+    <!-- SUBCATEGORY: TouchScreen -->
+    <string name="touchscreen_subcat_title">Touchscreen</string>
+    <string name="use_sweep2wake_title_head">Sweep2Wake</string>
+    <string name="use_sweep2wake_summary_head">Otključaj uređaj kretnjom preko ekrana</string>
+    <string name="x_sweep2wake_title_head">S2W vrijednost X</string>
+    <string name="x_sweep2wake_summary_head">Podesi granicu vrijednosti x-osi za otključavanje kretnjom.</string>
+    <string name="y_sweep2wake_title_head">S2W vrijednost Y</string>
+    <string name="y_sweep2wake_summary_head">Podesi granicu vrijednosti y-osi za otključavanje kretnjom.</string>
+
+    <!-- SUBCATEGORY: FSync -->
+    <string name="fsync_subcat_title">FSync</string>
+    <string name="fsync_title_head">FSync mode</string>
+    <string name="fsync_summary_head">Isključivanjem fsync-a mogu se unaprijediti IO performanse, ali može izazvati oštećenje podataka. Dinamični fsync će sinkronizirati sve "buffere" kada se zaslon ugasi.</string>
+
+    <!-- SUBCATEGORY: GPU -->
+    <string name="gpu_subcat_title">GPU</string>
+    <string name="mali_l2_mr_title_head">Mali L2 Max Reads</string>
+    <string name="mali_l2_mr_summary_head">Povećavanjem se mogu unaprijediti grafičke performanse</string>
+    <string name="mali_pam_title_head">Mali Pre-allocated memory size</string>
+    <string name="mali_pam_summary_head">Povećavanjem se mogu unaprijediti grafičke performanse</string>
+
+	<!-- CATEGORY: Power Management -->
+    <string name="powermgmt_name">Upravljanje energijom</string>
+
+    <!-- SUBCATEGORY: WIFI -->
+    <string name="wifi_subcat_title">WiFi</string>
+    <string name="use_wifipm_max_title_head">Koristi WiFi PM_MAX</string>
+    <string name="use_wifipm_max_summary_head">Korištenje PM_MAX štedi energiju, ali smanjuje brzinu interneta.</string>
+
+    <!-- SUBCATEGORY: Scheduler -->
+    <string name="scheduler_subcat_title">Scheduler</string>
+    <string name="sched_mc_title_head">Višejezgrena štednja energije</string>
+    <string name="sched_mc_summary_head">Pokušava grupirati zadatke u što manje jezgri za štednju energije. Nije preporučljivo koristiti s "hotplug" governor-om.</string>
+
+    <!-- SUBCATEGORY: Deep Sleep -->
+    <string name="deepsleep_subcat_title">Duboki san</string>
+    <string name="deepest_sleep_title_head">Stanje dubokog sna</string>
+    <string name="deepest_sleep_summary_head">Odredi najdublje stanje sna</string>
+
+    <!-- CATEGORY: ADVANCED -->
+    <string name="advanced_name">Napredno</string>
+
+    <!-- SUBCATEGORY: STORAGE -->
+    <string name="storage_subcat_title">Pohranjivanje</string>
+    <string name="switch_storage_title_head">Zamjeni memoriju</string>
+    <string name="switch_storage_summary_head">Zamjenjuje unutarnju sa vanjskom memorijom. Potrebno resetirati!</string>
+
+   <!-- SUBCATEGORY: BLN -->
+    <string name="backlight_subcat_title">Pozadinsko svjetlo</string>
+    <string name="disable_bln_title_head">Isključi BLN</string>
+    <string name="disable_bln_summary_head">Nećete primati obavijesti preko pozadinskog svjetla tipaka.</string>
+
+    <!-- SUBCATEGORY: Scheduler -->
+    <string name="readaheadkb_dialog_message">Odaberi vrijednost readahead buffer-a</string>
+    <string name="readaheadkb_title_head">Vrijednost Readahead buffer</string>
+
+    <!-- SUBCATEGORY: MMC -->
+    <string name="mmc_subcat_title">MMC</string>
+    <string name="use_spi_crc_title_head">Isključi SPI CRC</string>
+    <string name="use_spi_crc_summary_head">Isključivanjem SPI CRC se mogu unaprijediti mmc performanse (10% - 30%) ali mobitel se može iznenada zalediti</string>
+
+    <!-- SUBCATEGORY: Accelerometer -->
+    <string name="accelerometer_subcat_title">Akcelerometar</string>
+    <string name="use_accelerometer_calibration_title_head">Koristi podatke kalibriranja</string>
+    <string name="use_accelerometer_calibration_summary_head">Koristi iznose kalibriranja. Kalibriraj nakon ovog odabira!</string>
+    <string name="calibrate_accelerometer_title_head">Kalibriraj</string>
+    <string name="calibrate_accelerometer_summary_head">Pritisni nakon postavljanja mobitela na ravnu površinu</string>
+    <string name="accelerometer_dialog_head">Kalibriranje završeno</string>
+    <string name="accelerometer_dialog_message">Senzor je uspješno kalibriran</string>
+
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/radio_subcat_title" >
+        <!-- Hspa modes -->
+        <com.teamcanjica.settings.device.Hspa
+            android:defaultValue="23"
+            android:entries="@array/hspa_entries"
+            android:entryValues="@array/hspa_entries_values"
+            android:key="hspa"
+            android:summary="@string/hspa_summary_head"
+            android:title="@string/hspa_title_head" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/tcp_subcat_title" >
+        <com.teamcanjica.settings.device.TCPControl
+            android:defaultValue="cubic"
+            android:entries="@array/tcp_control_entries"
+            android:entryValues="@array/tcp_control_entries_values"
+            android:key="tcp_control"
+            android:summary="@string/tcp_summary_head"
+            android:title="@string/tcp_title_head" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

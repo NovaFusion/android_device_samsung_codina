@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2012 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+
+
+
+-->
+<resources>
+
+    <!-- App name -->
+    <string name="app_name">Налаштування Galaxy Ace 2</string>
+
+    <!-- TAB: General -->
+    <string name="category_general_title">Основні</string>
+
+    <!-- CATEGORY: Radio mode -->
+    <string name="radio_subcat_title">Режим роботи радіомодуля</string>
+    <string name="hspa_title_head">HSPA</string>
+    <string name="hspa_summary_head">Увімкнення HSDPA/HSUPA</string>
+
+    <!-- CATEGORY: Accelerometer -->
+    <string name="accelerometer_subcat_title">Датчик прискорення</string>
+    <string name="use_accelerometer_calibration_title_head">Використовувати дані калібрування</string>
+    <string name="use_accelerometer_calibration_summary_head">Використовувати отримані дані калібрування. Виконайте калібрування після вибору цієї опції</string>
+    <string name="calibrate_accelerometer_title_head">Калібрувати</string>
+    <string name="calibrate_accelerometer_summary_head">Покладіть телефон на плоску поверхню та натисніть сюди для продовження</string>
+    <string name="accelerometer_dialog_head">Калібруання виконане</string>
+    <string name="accelerometer_dialog_message">Датчик був успішно відкалібрований</string>
+
+    <!-- TAB: USB -->
+    <string name="category_usb_title">USB</string>
+
+    <!-- CATEGORY: USB OTG Settings -->
+    <string name="otg_subcat_title">Налаштування USB OTG</string>
+    <string name="otg_power_title_head">Живлення USB-VBUS</string>
+    <string name="otg_power_summary_head">Вмикае подачу напруги на USB-порт</string>
+
+    <!-- CATEGORY: Charger Control -->
+    <string name="cc_subcat_title">Керування процесом заряджання</string>
+    <string name="ac_cc_title_head">Струм від зарядного пристрою</string>
+    <string name="ac_cc_summary_head">Струм від зарядного пристрою в мА, низький рівень захищає акумулятор, але збільшуе час заряджання, високий рівень може зашкодити акумулятору</string>
+    <string name="usb_cc_title_head">Струм від USB-кабелю</string>
+    <string name="usb_cc_summary_head">Струм від USB-кабелю в мА, корисно для режиму швидкого заряджання, низький рівень захищає акумулятор, але збільшуе час заряджання, високий рівень може зашкодити акумулятору</string>
+
+    <!-- CATEGORY: Deep Sleep -->
+    <string name="deepsleep_subcat_title">Стан сну</string>
+    <string name="deepest_sleep_title_head">Найглибший стан сну</string>
+    <string name="deepest_sleep_summary_head">Встановлює максимально дозволений стан глибокого сну процесора/системи</string>
+
+    <!-- TAB: ADVANCED -->
+    <string name="category_advanced_title">Розширені</string>
+
+    <!-- CATEGORY: FSync -->
+    <string name="fsync_subcat_title">FSync</string>
+    <string name="fsync_title_head">Режим FSynс</string>
+    <string name="fsync_summary_head">Вимкнення примусового скидання буферів може поліпшити продуктивність роботи флеш-пам\'яті, але також викликати втрату або пошкодження даних. В динамічному режимі буфери будуть скидатися під час вимкнення екрану</string>
+
+    <!-- CATEGORY: GPU -->
+    <string name="gpu_subcat_title">GPU</string>
+    <string name="mali_l2_mr_title_head">Mali L2 Max Reads</string>
+    <string name="mali_l2_mr_summary_head">Increasing it may improve graphics performance.</string>
+    <string name="mali_pam_title_head">Mali Pre-allocated memory size</string>
+    <string name="mali_pam_summary_head">Increasing it may improve graphics performance.</string>
+
+    <!-- CATEGORY: MMC -->
+    <string name="mmc_subcat_title">MMC</string>
+    <string name="use_spi_crc_title_head">Disable SPI CRC</string>
+    <string name="use_spi_crc_summary_head">Disabling SPI CRC can improve mmc performance (10% - 30%) but phone may freeze randomly</string>
+
+    <!-- CATEGORY: STORAGE -->
+    <string name="storage_subcat_title">Місце збереження даних</string>
+    <string name="switch_storage_title_head">Поміняти пам\'ять місцями</string>
+    <string name="switch_storage_summary_head">Міняє місцями внутрішню пам\'ять пристрою і зовнішню SD-карту</string>
+
+</resources>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App name -->
+    <string name="app_name">Cài đặt Galaxy Ace 2</string>
+    <string name="image">Hình thu nhỏ</string>
+
+    <!-- CATEGORY: Network -->
+    <string name="network_name">Mạng</string>
+
+    <!-- SUBCATEGORY: Radio mode -->
+    <string name="radio_subcat_title">Chế độ sóng</string>
+    <string name="hspa_title_head">HSPA</string>
+    <string name="hspa_summary_head">Bật HSDPA/HSUPA</string>
+
+    <!-- SUBCATEGORY: TCP -->
+    <string name="tcp_subcat_title">TCP</string>
+    <string name="tcp_title_head">Thuật toán TCP</string>
+    <string name="tcp_summary_head">Chuyển đổi các thuật toán ảnh hưởng đến tốc độ tải xuống, tốc độ tải lên và độ trễ của bạn.</string>
+
+    <!-- CATEGORY: USB -->
+    <string name="usb_name">USB</string>
+
+    <!-- SUBCATEGORY: USB OTG Settings -->
+    <string name="otg_subcat_title">Cài đặt USB OTG</string>
+    <string name="otg_power_title_head">Điện áp USB-VBUS</string>
+    <string name="otg_power_summary_head">Cho phép điện áp đầu ra với cổng USB</string>
+
+    <!-- SUBCATEGORY: Charger Control -->
+    <string name="cc_subcat_title">Kiểm soát bộ sạc</string>
+    <string name="ac_cc_title_head">Chỉ số sạc sạc</string>
+    <string name="ac_cc_summary_head">Chỉ số sạc mAh, mức thấp bảo vệ pin nhưng mất nhiều thời gian để sạc, mức độ cao có thể làm hỏng pin</string>
+    <string name="usb_cc_title_head">Chỉ số sạc qua USB</string>
+    <string name="usb_cc_summary_head">Chỉ số sạc USB là mAh, hữu ích để thực hiện Fast Charge, mức thấp bảo vệ pin nhưng mất nhiều thời gian để sạc, mức độ cao có thể làm hỏng pin</string>
+
+    <!-- CATEGORY: AUDIO -->
+    <string name="audio_name">Audio</string>
+
+    <!-- SUBCATEGORY: Headset Gain -->
+    <string name="headsetgain_subcat_title">Headset Gain</string>
+    
+    <string name="enable_anagain3_title_head">AnaGain3</string>
+    <string name="enable_anagain3_summary_head">Cho phép tai nghe con đường tăng tương tự.</string>
+    
+    <string name="anagain3_control_title_head">AnaGain3 Gain Control</string>
+    <string name="anagain3_control_dialog_message">Chọn số lượng tăng âm lượng cho AnaGain3.</string>
+    
+    <string name="enable_hsldiggain_title_head">HsLDigGain</string>
+    <string name="enable_hsldiggain_summary_head">Cho phép tai nghe lại tăng con đường kỹ thuật số.</string>
+    
+    <string name="enable_hsrdiggain_title_head">HsRDigGain</string>
+    <string name="enable_hsrdiggain_summary_head">Cho phép tăng đường kỹ thuật số ngay tai nghe.</string>
+        
+    <!-- SUBCATEGORY: Misc Gain -->
+    <string name="miscgain_subcat_title">Misc Gain</string>
+    
+    <string name="enable_classdhpg_title_head">ClassDHPG</string>
+    <string name="enable_classdhpg_summary_head">Cho phép bộ khuếch đại cao Class D vượt qua được.</string>
+    
+    <string name="enable_addiggain2_title_head">ADDigGain2</string>
+    <string name="enable_addiggain2_summary_head">Cho phép điện thoại micro tăng con đường kỹ thuật số.</string>
+    
+    <string name="enable_eardiggain_title_head">EarDigGain</string>
+    <string name="enable_eardiggain_summary_head">Cho phép tai nghe được con đường kỹ thuật số.</string>
+    
+    <!-- SUBCATEGORY: Power Modes -->
+    <string name="powermodes_subcat_title">Chế độ năng lượng</string>
+
+    <string name="enable_hslowpow_title_head">HsLowPow</string>
+    <string name="enable_hslowpow_summary_head">Cho phép điều khiển tai nghe chế độ năng lượng thấp.</string>
+    
+    <string name="enable_hsdaclowpow_title_head">HsDacLowPow</string>
+    <string name="enable_hsdaclowpow_summary_head">Cho phép chuyển đổi chế độ năng lượng thấp digital-to-analog tai nghe.</string>
+
+    <!-- SUBCATEGORY: Miscellaneous -->
+    <string name="miscellaneous_subcat_title">Linh tinh</string>
+    
+    <string name="enable_hshpen_title_head">HsHpEn</string>
+    <string name="enable_hshpen_summary_head">Cho phép tai nghe cao qua bộ lọc.</string>
+    
+    <string name="enable_classdwg_title_head">ClassDDithWGain</string>
+    <string name="enable_classdwg_summary_head">Cho phép điều khiển cho các thành phần trắng của bộ lọc phối màu.</string>
+
+    <!-- CATEGORY: SCREEN -->
+    <string name="screen_name">Màn hình</string>
+
+    <!-- SUBCATEGORY: TouchScreen -->
+    <string name="touchscreen_subcat_title">Màn hình cảm ứng</string>
+    <string name="use_sweep2wake_title_head">Sweep2Wake</string>
+    <string name="use_sweep2wake_summary_head">Mở khóa thiết bị bằng cách trượt</string>
+    <string name="x_sweep2wake_title_head">S2W mức giới hạn trục X</string>
+    <string name="x_sweep2wake_summary_head">Tinh chỉnh các mức giới hạn trục x của swiping.</string>
+    <string name="y_sweep2wake_title_head">S2W mức giới hạn trục Y</string>
+    <string name="y_sweep2wake_summary_head">Tinh chỉnh các mức giới hạn trục y của swiping.</string>
+
+    <!-- SUBCATEGORY: FSync -->
+    <string name="fsync_subcat_title">FSync</string>
+    <string name="fsync_title_head">Chế độ FSync</string>
+    <string name="fsync_summary_head">Vô hiệu hóa fsync có thể cải thiện hiệu suất IO, nhưng nó có thể gây hỏng dữ liệu. Dynamic fsync sẽ đồng bộ tất cả các bộ đệm khi màn hình tắt.</string>
+
+    <!-- SUBCATEGORY: GPU -->
+    <string name="gpu_subcat_title">GPU</string>
+    <string name="mali_l2_mr_title_head">Mali L2 Max Reads</string>
+    <string name="mali_l2_mr_summary_head">Tăng nó có thể cải thiện hiệu suất đồ họa.</string>
+    <string name="mali_pam_title_head">Kích thước bộ nhớ Mali dự bị được phân bổ</string>
+    <string name="mali_pam_summary_head">Tăng nó có thể cải thiện hiệu suất đồ họa.</string>
+
+    <!-- CATEGORY: Power Management -->
+    <string name="powermgmt_name">Quản lý năng lượng</string>
+
+    <!-- SUBCATEGORY: WIFI -->
+    <string name="wifi_subcat_title">Wifi</string>
+    <string name="use_wifipm_max_title_head">Sử dụng chế độ Wifi PM_MAX</string>
+    <string name="use_wifipm_max_summary_head">Sử dụng PM_MAX tiết kiệm năng lượng, nhưng tốc độ internet bị giảm.</string>
+
+    <!-- SUBCATEGORY: Scheduler -->
+    <string name="scheduler_subcat_title">Scheduler</string>
+    <string name="sched_mc_title_head">Đa lõi tiết kiệm năng lượng</string>
+    <string name="sched_mc_summary_head">Cố gắng nhiệm vụ nhóm vào lõi nhất có thể có tiết kiệm điện năng như hotplug. Không được khuyến cáo trên các governor hotplug.</string>
+
+    <!-- SUBCATEGORY: Deep Sleep -->
+    <string name="deepsleep_subcat_title">Ngủ sâu</string>
+    <string name="deepest_sleep_title_head">Trạng thái ngủ sâu nhất</string>
+    <string name="deepest_sleep_summary_head">Xác định mức độ giấc ngủ sâu cao nhất</string>
+
+    <!-- CATEGORY: ADVANCED -->
+    <string name="advanced_name">Nâng cao</string>
+
+    <!-- SUBCATEGORY: STORAGE -->
+    <string name="storage_subcat_title">Bộ nhớ</string>
+    <string name="switch_storage_title_head">Swap bộ nhớ</string>
+    <string name="switch_storage_summary_head">Chuyển phân vùng lưu trữ bộ nhớ trong với bộ nhớ ngoài SD Card. Yêu cầu khởi động lại.</string>
+
+   <!-- SUBCATEGORY: BLN -->
+    <string name="backlight_subcat_title">Đèn cảm ứng</string>
+    <string name="disable_bln_title_head">Vô hiệu hóa đèn cảm ứng</string>
+    <string name="disable_bln_summary_head">Bạn sẽ không thể nhận được thông báo qua đèn cảm ứng của bạn nếu BLN bị vô hiệu hóa.</string>
+
+    <!-- SUBCATEGORY: Scheduler -->
+    <string name="readaheadkb_dialog_message">Chọn kích thước bộ đệm readahead.</string>
+    <string name="readaheadkb_title_head">Kích thước bộ đệm readahead</string>
+    <string name="enable_uksm_title_head">Bật UKSM</string>
+    <string name="enable_uksm_summary_head">Tạo điều kiện cho siêu hạt nhân SamePage sát nhập, quản lý RAM tốt hơn nhưng tiêu thụ của CPU.</string>
+
+    <!-- SUBCATEGORY: MMC -->
+    <string name="mmc_subcat_title">MMC</string>
+    <string name="use_spi_crc_title_head">Vô hiệu hóa SPI CRC</string>
+    <string name="use_spi_crc_summary_head">Vô hiệu hóa SPI CRC có thể cải thiện hiệu suất mmc (10% - 30%) nhưng điện thoại có thể đóng băng ngẫu nhiên</string>
+
+    <!-- SUBCATEGORY: Accelerometer -->
+    <string name="accelerometer_subcat_title">Gia tốc</string>
+    <string name="use_accelerometer_calibration_title_head">Sử dụng dữ liệu hiệu chuẩn</string>
+    <string name="use_accelerometer_calibration_summary_head">Sử dụng các giá trị hiệu chuẩn gia tốc. Làm một hiệu chuẩn sau khi kiểm tra này!</string>
+    <string name="calibrate_accelerometer_title_head">Hiệu chỉnh</string>
+    <string name="calibrate_accelerometer_summary_head">Đặt điện thoại của bạn trên một bề mặt phẳng, và bấm hiệu chỉnh</string>
+    <string name="accelerometer_dialog_head">Hiệu chuẩn thành công</string>
+    <string name="accelerometer_dialog_message">Cảm biến đã được hiệu chỉnh thành công.</string>
+
+</resources>

@@ -1,0 +1,32 @@
+﻿<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string-array name="mali_l2_mr_entries">
+        <item>28kb (stock)</item>
+        <item>48kb (domyślne)</item>
+    </string-array>
+    <string-array name="fsync_mode_entries">
+        <item>Włączony (domyślnie)</item>
+        <item>Wyłączony</item>
+        <item>Dynamiczny</item>
+    </string-array>
+    <string-array name="cc_currency_usb_entries">
+        <item>800 mA *UWAGA!*</item>
+        <item>600 mA (szybkie ładowanie)</item>
+        <item>400 mA</item>
+    </string-array>
+    <string-array name="deepest_sleep_states_entries">
+        <item>Stan 5</item>
+        <item>Stan 4</item>
+        <item>Stan 3 (domyślnie)</item>
+    </string-array>
+    <string-array name="cc_currency_charger_entries">
+        <item>800 mA *UWAGA!*</item>
+        <item>600 mA (domyślnie)</item>
+        <item>400 mA</item>
+    </string-array>
+    <string-array name="hspa_entries">
+        <item>Tylko UMTS</item>
+        <item>Tylko HSDPA</item>
+        <item>HSDPA + HSUPA</item>
+    </string-array>
+</resources>

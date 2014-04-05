@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App name -->
+    <string name="app_name">Galaxy Ace 2 Settings</string>
+    <string name="image">Thumbnail</string>
+
+    <!-- CATEGORY: Network -->
+    <string name="network_name">Network</string>
+
+    <!-- SUBCATEGORY: Radio mode -->
+    <string name="radio_subcat_title">Radio mode</string>
+    <string name="hspa_title_head">HSPA</string>
+    <string name="hspa_summary_head">Enable HSDPA/HSUPA</string>
+
+    <!-- SUBCATEGORY: TCP -->
+    <string name="tcp_subcat_title">TCP</string>
+    <string name="tcp_title_head">TCP Algorithm</string>
+    <string name="tcp_summary_head">Switching the algorithm affects your download and upload speeds and latency.</string>
+
+    <!-- CATEGORY: USB -->
+    <string name="usb_name">USB</string>
+
+    <!-- SUBCATEGORY: USB OTG Settings -->
+    <string name="otg_subcat_title">USB OTG Settings</string>
+    <string name="otg_power_title_head">USB-VBUS Power</string>
+    <string name="otg_power_summary_head">Enables output voltage to the USB port</string>
+
+    <!-- SUBCATEGORY: Charger Control -->
+    <string name="cc_subcat_title">Charger control</string>
+    <string name="ac_cc_title_head">Wall charger currency</string>
+    <string name="ac_cc_summary_head">Wall charger currency in mAh, low levels protect battery but takes longer to charge, high levels may damage battery life</string>
+    <string name="usb_cc_title_head">USB cable currency</string>
+    <string name="usb_cc_summary_head">USB cable currency in mAh, useful to implement Fast Charge, low levels protect battery but takes longer to charge, high levels may damage battery life</string>
+
+    <!-- CATEGORY: AUDIO -->
+    <string name="audio_name">Audio</string>
+
+    <!-- SUBCATEGORY: Headset Gain -->
+    <string name="headsetgain_subcat_title">Headset Gain</string>
+    
+    <string name="enable_anagain3_title_head">AnaGain3</string>
+    <string name="enable_anagain3_summary_head">Enable headset analog gain path.</string>
+    
+    <string name="anagain3_control_title_head">AnaGain3 Gain Control</string>
+    <string name="anagain3_control_dialog_message">Select the amount of volume gain for AnaGain3.</string>
+    
+    <string name="enable_hsldiggain_title_head">HsLDigGain</string>
+    <string name="enable_hsldiggain_summary_head">Enable headset left digital path gain.</string>
+    
+    <string name="enable_hsrdiggain_title_head">HsRDigGain</string>
+    <string name="enable_hsrdiggain_summary_head">Enable headset right digital path gain.</string>
+        
+    <!-- SUBCATEGORY: Misc Gain -->
+    <string name="miscgain_subcat_title">Misc Gain</string>
+    
+    <string name="enable_classdhpg_title_head">ClassDHPG</string>
+    <string name="enable_classdhpg_summary_head">Enable ClassD amplifier high-pass gain.</string>
+    
+    <string name="enable_addiggain2_title_head">ADDigGain2</string>
+    <string name="enable_addiggain2_summary_head">Enable phone microphone digital path gain.</string>
+    
+    <string name="enable_eardiggain_title_head">EarDigGain</string>
+    <string name="enable_eardiggain_summary_head">Enable earpiece digital path gain.</string>
+    
+    <!-- SUBCATEGORY: Power Modes -->
+    <string name="powermodes_subcat_title">Power Modes</string>
+
+    <string name="enable_hslowpow_title_head">HsLowPow</string>
+    <string name="enable_hslowpow_summary_head">Enable headset driver low power mode.</string>
+    
+    <string name="enable_hsdaclowpow_title_head">HsDacLowPow</string>
+    <string name="enable_hsdaclowpow_summary_head">Enable headset digital-to-analog converter low power mode.</string>
+
+    <!-- SUBCATEGORY: Miscellaneous -->
+    <string name="miscellaneous_subcat_title">Miscellaneous</string>
+    
+    <string name="enable_hshpen_title_head">HsHpEn</string>
+    <string name="enable_hshpen_summary_head">Enable headset high pass filter.</string>
+    
+    <string name="enable_classdwg_title_head">ClassDDithWGain</string>
+    <string name="enable_classdwg_summary_head">Enable control for the white component of dithering filter.</string>
+
+    <!-- CATEGORY: SCREEN -->
+    <string name="screen_name">Screen</string>
+
+    <!-- SUBCATEGORY: TouchScreen -->
+    <string name="touchscreen_subcat_title">Touchscreen</string>
+    <string name="use_sweep2wake_title_head">Sweep2Wake</string>
+    <string name="use_sweep2wake_summary_head">Unlock device with a swipe</string>
+    <string name="x_sweep2wake_title_head">S2W Threshold X</string>
+    <string name="x_sweep2wake_summary_head">Tweak the x-axis threshold value of swiping.</string>
+    <string name="y_sweep2wake_title_head">S2W Threshold Y</string>
+    <string name="y_sweep2wake_summary_head">Tweak the y-axis threshold value of swiping.</string>
+
+    <!-- SUBCATEGORY: FSync -->
+    <string name="fsync_subcat_title">FSync</string>
+    <string name="fsync_title_head">FSync mode</string>
+    <string name="fsync_summary_head">Disabling fsync can improve IO performance, but it may cause data corruption. Dynamic fsync will sync all buffers when screen turns off.</string>
+
+    <!-- SUBCATEGORY: GPU -->
+    <string name="gpu_subcat_title">GPU</string>
+    <string name="mali_l2_mr_title_head">Mali L2 Max Reads</string>
+    <string name="mali_l2_mr_summary_head">Increasing it may improve graphics performance.</string>
+    <string name="mali_pam_title_head">Mali Pre-allocated memory size</string>
+    <string name="mali_pam_summary_head">Increasing it may improve graphics performance.</string>
+
+    <!-- CATEGORY: Power Management -->
+    <string name="powermgmt_name">Power Management</string>
+
+    <!-- SUBCATEGORY: WIFI -->
+    <string name="wifi_subcat_title">Wi-Fi</string>
+    <string name="use_wifipm_max_title_head">Use Wi-Fi PM_MAX mode</string>
+    <string name="use_wifipm_max_summary_head">Using PM_MAX saves power, but internet speed is reduced.</string>
+
+    <!-- SUBCATEGORY: Scheduler -->
+    <string name="scheduler_subcat_title">Scheduler</string>
+    <string name="sched_mc_title_head">Multicore Power Saving</string>
+    <string name="sched_mc_summary_head">Try to group tasks into the least cores possible to have hotplug-like powersavings. Not recommended on hotplug governors.</string>
+
+    <!-- SUBCATEGORY: Deep Sleep -->
+    <string name="deepsleep_subcat_title">Deep Sleep</string>
+    <string name="deepest_sleep_title_head">Deepest sleep state</string>
+    <string name="deepest_sleep_summary_head">Specify the highest deep sleep level</string>
+
+    <!-- CATEGORY: ADVANCED -->
+    <string name="advanced_name">Advanced</string>
+
+    <!-- SUBCATEGORY: STORAGE -->
+    <string name="storage_subcat_title">Storage</string>
+    <string name="switch_storage_title_head">Swap Storages</string>
+    <string name="switch_storage_summary_head">Switches internal storage partition with external sd-card. Reboot required.</string>
+
+   <!-- SUBCATEGORY: BLN -->
+    <string name="backlight_subcat_title">Backlight</string>
+    <string name="disable_bln_title_head">Disable BLN</string>
+    <string name="disable_bln_summary_head">You won\'t be able to be notified of notifications through your backlight if BLN is disabled.</string>
+
+    <!-- SUBCATEGORY: Scheduler -->
+    <string name="readaheadkb_dialog_message">Select the readahead buffer size.</string>
+    <string name="readaheadkb_title_head">Readahead buffer size</string>
+
+    <!-- SUBCATEGORY: MMC -->
+    <string name="mmc_subcat_title">MMC</string>
+    <string name="use_spi_crc_title_head">Disable SPI CRC</string>
+    <string name="use_spi_crc_summary_head">Disabling SPI CRC can improve mmc performance (10% - 30%) but phone may freeze randomly</string>
+
+    <!-- SUBCATEGORY: Accelerometer -->
+    <string name="accelerometer_subcat_title">Accelerometer</string>
+    <string name="use_accelerometer_calibration_title_head">Use calibration data</string>
+    <string name="use_accelerometer_calibration_summary_head">Use the accelerometer calibration values. Do a calibration after checking this!</string>
+    <string name="calibrate_accelerometer_title_head">Calibrate</string>
+    <string name="calibrate_accelerometer_summary_head">Put your phone on a flat surface, and press this to calibrate</string>
+    <string name="accelerometer_dialog_head">Calibration done</string>
+    <string name="accelerometer_dialog_message">The sensor has been successfully calibrated.</string>
+
+</resources>

@@ -19,6 +19,10 @@ LOCAL_PATH := device/samsung/codina
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
+# Ace 2 settings
+PRODUCT_PACKAGES += \
+    GalaxyAce2Settings
+
 ##########################################
 ## Kernel stuff
 ##########################################

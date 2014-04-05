@@ -1,0 +1,59 @@
+﻿<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Settings list entries-->
+    <string-array name="settings_entries">
+        <item>Mreža</item>
+        <item>USB</item>
+        <item>Zvuk</item>
+        <item>Zaslon</item>
+        <item>Upravljanje energijom</item>
+        <item>Napredno</item>
+    </string-array>
+
+    <!-- GPU -->
+    <string-array name="mali_l2_mr_entries">
+        <item>28kb (Početno)</item>
+        <item>48kb (Zadano)</item>
+    </string-array>
+
+    <!-- Fsync -->
+    <string-array name="fsync_mode_entries">
+        <item>Uključeno (Zadano)</item>
+        <item>Isključeno</item>
+        <item>Dinamični Fsync</item>
+    </string-array>
+
+    <!-- USB -->
+    <string-array name="cc_currency_usb_entries">
+        <item>800 mA *UPOZORENJE*</item>
+        <item>600 mA (Brzo punjenje)</item>
+        <item>400 mA</item>
+    </string-array>
+    <string-array name="cc_currency_charger_entries">
+        <item>800 mA   *UPOZORENJE*</item>
+        <item>600 mA (Zadano)</item>
+        <item>400 mA</item>
+    </string-array>
+
+    <!-- Deep Sleep -->
+    <string-array name="deepest_sleep_states_entries">
+        <item>Stanje 5</item>
+        <item>Stanje 4</item>
+        <item>Stanje 3 (Zadano)</item>
+    </string-array>
+
+    <!-- HSPA -->
+    <string-array name="hspa_entries">
+        <item>Samo UMTS</item>
+        <item>Samo HSDPA</item>
+        <item>HSDPA + HSUPA</item>
+    </string-array>
+
+    <!-- Scheduler -->
+    <string-array name="sched_mc_entries">
+        <item>Isključeno</item>
+        <item>Blago</item>
+        <item>Agresivno</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cyanogenmod="http://schemas.android.com/apk/res-auto" >
+
+    <PreferenceCategory android:title="@string/storage_subcat_title" >
+        <CheckBoxPreference
+            android:key="switch_storage"
+            android:summary="@string/switch_storage_summary_head"
+            android:title="@string/switch_storage_title_head" />
+    </PreferenceCategory>
+
+   <PreferenceCategory android:title="@string/backlight_subcat_title" >
+        <CheckBoxPreference
+            android:key="disable_bln"
+            android:summary="@string/disable_bln_summary_head"
+            android:title="@string/disable_bln_title_head" />
+    </PreferenceCategory>
+    
+   <PreferenceCategory android:title="@string/scheduler_subcat_title" >
+       <com.teamcanjica.settings.device.ReadaheadkB
+           android:defaultValue="512"
+           android:dialogMessage="@string/readaheadkb_dialog_message"
+           android:max="4096"
+           cyanogenmod:min="128"
+           cyanogenmod:progressTextSuffix="kB"
+           android:key="readaheadkb"
+           android:title="@string/readaheadkb_title_head" />
+   </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/mmc_subcat_title" >
+        <CheckBoxPreference
+            android:key="use_spi_crc"
+            android:summary="@string/use_spi_crc_summary_head"
+            android:title="@string/use_spi_crc_title_head" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/accelerometer_subcat_title" >
+        <!-- Use sensor calibration -->
+        <CheckBoxPreference
+            android:key="use_accelerometer_calibration"
+            android:summary="@string/use_accelerometer_calibration_summary_head"
+            android:title="@string/use_accelerometer_calibration_title_head" />
+        <!-- Do accelerometer calibration -->
+        <Preference
+            android:key="calibrate_accelerometer"
+            android:summary="@string/calibrate_accelerometer_summary_head"
+            android:title="@string/calibrate_accelerometer_title_head" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

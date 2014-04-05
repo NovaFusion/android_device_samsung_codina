@@ -1,0 +1,46 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string-array name="settings_entries">
+        <item>Mạng</item>
+        <item>USB</item>
+        <item>Audio</item>
+        <item>Màn hình</item>
+        <item>Quản lí điện năng</item>
+        <item>Nâng cao</item>
+    </string-array>
+    <string-array name="mali_l2_mr_entries">
+        <item>28kb (stock)</item>
+        <item>48kb (mặc định)</item>
+    </string-array>
+    <string-array name="fsync_mode_entries">
+        <item>Bật (mặc định)</item>
+        <item>Vô hiệu hóa</item>
+        <item>Dynamic</item>
+    </string-array>
+    <string-array name="cc_currency_usb_entries">
+        <item>800 mA *NGUY HIỂM*</item>
+        <item>600 mA (sạc nhanh)</item>
+        <item>400 mA</item>
+    </string-array>
+    <string-array name="cc_currency_charger_entries">
+        <item>800 mA *NGUY HIỂM*</item>
+        <item>600 mA (sạc nhanh)</item>
+        <item>400 mA</item>
+    </string-array>
+    <string-array name="deepest_sleep_states_entries">
+        <item>Mức 5</item>
+        <item>Mức 4</item>
+        <item>Mức 3 (Mặc định)</item>
+    </string-array>
+    <string-array name="hspa_entries">
+        <item>Chỉ UMTS</item>
+        <item>Chỉ HSDPA</item>
+        <item>HSDPA + HSUPA</item>
+    </string-array>
+    <string-array name="sched_mc_entries">
+        <item>Vô hiệu hóa</item>
+        <item>Nhẹ</item>
+        <item>Tích cực</item>
+    </string-array>
+	
+</resources>
