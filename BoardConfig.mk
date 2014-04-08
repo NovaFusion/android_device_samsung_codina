@@ -135,3 +135,6 @@ COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 # Custom releasetools - disabled
 # TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := ./device/samsung/codina/releasetools/u8500_ota_from_target_files
 # TARGET_RELEASETOOL_IMG_FROM_TARGET_SCRIPT := ./device/samsung/codina/releasetools/u8500_img_from_target_files
+
+# Override healthd HAL
+BOARD_HAL_STATIC_LIBRARIES := libhealthd.montblanc
